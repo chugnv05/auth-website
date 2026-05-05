@@ -192,4 +192,8 @@
   .page-container {
     @apply mx-auto px-1 md:px-2 lg:px-8;
   }
+
+  .gently-emerge {
+    @apply transition-all duration-200 hover:-translate-y-0.5;
+  }
 }
