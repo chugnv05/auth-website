@@ -1,8 +1,8 @@
 import { cva, type VariantProps } from "class-variance-authority";
+import { Slot } from "radix-ui";
 import * as React from "react";
 
 import { cn } from "@/shared/lib/utils";
-import { Slot } from "@radix-ui/react-slot";
 
 const buttonVariants = cva(
   "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
@@ -24,6 +24,9 @@ const buttonVariants = cva(
           "bg-crimson-red text-peach hover:bg-peach hover:text-crimson-red transition-all duration-200 hover:-translate-y-0.5",
 
         register: "bg-peach text-crimson-red transition-all duration-200 hover:-translate-y-0.5",
+
+        panel:
+          "bg-crimson-red text-peach hover:bg-peach hover:text-crimson-red transition-all duration-200 hover:-translate-y-0.5",
       },
       size: {
         default:
@@ -56,7 +59,7 @@ function Button({
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
   }) {
-  const Comp = asChild ? Slot : "button";
+  const Comp = asChild ? Slot.Root : "button";
 
   return (
     <Comp
