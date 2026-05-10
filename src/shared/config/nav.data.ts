@@ -1,3 +1,4 @@
+import { PATHS } from "@/routers/paths";
 import { BadgeInfo, BadgeQuestionMark, House } from "lucide-react";
 import { IconType } from "react-icons/lib";
 
@@ -10,13 +11,13 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
-  { label: "FQAs", to: "/fqas" },
+  { label: "Home", to: PATHS.HOME },
+  { label: "About Us", to: PATHS.ABOUT_US },
+  { label: "FQAs", to: PATHS.FQAS },
 ];
 
 export const navMobileItems: NavItem[] = [
-  { icon: House, label: "Home", to: "/" },
-  { icon: BadgeInfo, label: "About Us", to: "/about" },
-  { icon: BadgeQuestionMark, label: "FQAs", to: "/fqas" },
+  { icon: House, label: "Home", to: PATHS.HOME },
+  { icon: BadgeInfo, label: "About Us", to: PATHS.ABOUT_US },
+  { icon: BadgeQuestionMark, label: "FQAs", to: PATHS.FQAS },
 ];

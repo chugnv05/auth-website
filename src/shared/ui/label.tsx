@@ -1,22 +1,56 @@
-import * as React from "react"
-import { Label as LabelPrimitive } from "radix-ui"
+import * as LabelPrimitive from "@radix-ui/react-label";
+import { cva, VariantProps } from "class-variance-authority";
+import React from "react";
+import { cn } from "../lib/utils";
 
-import { cn } from "@/shared/lib/utils"
+const labelVariants = cva(
+  [
+    "text-sm font-medium leading-none",
+    "peer-disabled:cursor-not-allowed",
+    "peer-disable:opacity-50",
+    "transition-colors duration-200",
+  ],
+  {
+    variants: {
+      variant: {
+        default: "text-foreground",
+        mute: "text-muted-foreground",
+        error: "text-destructive",
+        success: "text-deep-jungle-green",
+        auth: "text-crimson-red",
+      },
 
-function Label({
-  className,
-  ...props
-}: React.ComponentProps<typeof LabelPrimitive.Root>) {
+      size: {
+        sm: "text-xs",
+        md: "text-sm",
+        lg: "text-base",
+      },
+    },
+
+    defaultVariants: {
+      variant: "default",
+      size: "md",
+    },
+  },
+);
+
+type LabelProps = React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
+  VariantProps<typeof labelVariants> & { required?: boolean };
+
+function Label({ className, variant, size, required = false, children, ...props }: LabelProps) {
   return (
     <LabelPrimitive.Root
       data-slot="label"
-      className={cn(
-        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
-        className
-      )}
+      className={cn(labelVariants({ variant, size }), className)}
       {...props}
-    />
-  )
+    >
+      <span className="flex items-center gap-1">
+        {children}
+
+        {required && <span className="text-destructive">*</span>}
+      </span>
+    </LabelPrimitive.Root>
+  );
 }
 
-export { Label }
+export { Label };

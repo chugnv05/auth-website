@@ -10,7 +10,7 @@ export default function MobileMenu() {
     <div className="md:hidden text-lg">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="panel" size="icon">
+          <Button variant="menu" size="icon">
             <PanelRight />
           </Button>
         </SheetTrigger>

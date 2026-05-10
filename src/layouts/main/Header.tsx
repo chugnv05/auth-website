@@ -1,4 +1,5 @@
 import svg from "@/assets/svg";
+import { PATHS } from "@/routers/paths";
 import { navItems } from "@/shared/config/nav.data";
 import { Button } from "@/shared/ui/Button";
 import { Link } from "react-router-dom";
@@ -31,8 +32,12 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2 md:gap-2 lg:gap-3">
-          <Button variant="login">Login</Button>
-          <Button variant="register">Register</Button>
+          <Link to={PATHS.LOGIN}>
+            <Button variant="authOutline">Login</Button>
+          </Link>
+          <Link to={PATHS.REGISTER}>
+            <Button variant="auth">Register</Button>
+          </Link>
         </div>
 
         {/* Mobile Menu - default hidden */}

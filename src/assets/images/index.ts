@@ -1,10 +1,8 @@
 import logo from "./crimson-red-logo.png";
-import bannerA from "./team-work-a.png";
-import bannerB from "./team-work-b.png";
+import banner from "./team-work-a.png";
 const images = {
   logo,
-  bannerA,
-  bannerB,
+  banner,
 };
 
 export default images;

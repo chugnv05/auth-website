@@ -28,8 +28,15 @@
 
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
+  --crimson: #e83e5a;
   --crimson-red: #a4193d;
   --peach: #ffdfb9;
+  --rich-black: #101820;
+  --vivid-yellow: #fee715;
+  --oxford-blue: #0a174e;
+  --maize-yellow: #f5d042;
+  --deep-jungle-green: #07553b;
+  --light-olive-green: #ced46a;
 
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -118,6 +125,15 @@
   /* Colors */
   --color-crimson-red: var(--crimson-red);
   --color-peach: var(--peach);
+  --color-crimson: var(--crimson);
+
+  --color-rich-black: var(--rich-black);
+  --color-vivid-yellow: var(--vivid-yellow);
+  --color-oxford-blue: var(--oxford-blue);
+  --color-maize-yellow: var(--maize-yellow);
+  --color-deep-jungle-green: var(--deep-jungle-green);
+  --color-light-olive-green: var(--light-olive-green);
+  --animate-shimmer: shimmer 2s infinite;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -195,5 +211,11 @@
 
   .gently-emerge {
     @apply transition-all duration-200 hover:-translate-y-0.5;
+  }
+}
+
+@keyframes shimer {
+  100% {
+    transform: translateX(100%);
   }
 }

@@ -1,3 +1,4 @@
+import { LINKS, PATHS } from "@/routers/paths";
 import { FileUser, Mail, MapPinHouse, Phone } from "lucide-react";
 import React from "react";
 import { FaFacebook, FaGithub, FaTelegramPlane, FaTiktok, FaYoutube } from "react-icons/fa";
@@ -25,17 +26,17 @@ export const footerData: FooterColumn[] = [
   {
     title: "News",
     items: [
-      { label: "Version 1.1", to: "/" },
-      { label: "Version 1.2", to: "/" },
-      { label: "Version 1.3", to: "/" },
+      { label: "Version 1.1", to: PATHS.NEWS },
+      { label: "Version 1.2", to: PATHS.NEWS },
+      { label: "Version 1.3", to: PATHS.NEWS },
     ],
   },
   {
     title: "Blog",
     items: [
-      { label: "Tech", to: "/" },
-      { label: "Life", to: "/" },
-      { label: "Tips", to: "/" },
+      { label: "Tech", to: PATHS.BLOG },
+      { label: "Life", to: PATHS.BLOG },
+      { label: "Tips", to: PATHS.BLOG },
     ],
   },
   {
@@ -50,9 +51,9 @@ export const footerData: FooterColumn[] = [
 ];
 
 export const socialLinks: SocialItem[] = [
-  { icon: FaGithub, to: "https://github.com/chugnv05/auth-website" },
-  { icon: FaFacebook, to: "/" },
-  { icon: FaYoutube, to: "/" },
-  { icon: FaTelegramPlane, to: "/" },
-  { icon: FaTiktok, to: "/" },
+  { icon: FaGithub, to: LINKS.GITHUB },
+  { icon: FaFacebook, to: LINKS.NONE },
+  { icon: FaYoutube, to: LINKS.NONE },
+  { icon: FaTelegramPlane, to: LINKS.NONE },
+  { icon: FaTiktok, to: LINKS.NONE },
 ];
