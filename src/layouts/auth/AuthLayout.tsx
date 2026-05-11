@@ -8,7 +8,7 @@ export default function AuthLayout() {
         <img src={svg.banner} alt="Banner" className="w-full" />
       </div>
 
-      <div className="flex items-center justify-center px-6 py-10">
+      <div className="flex items-center justify-center p-6">
         <Outlet />
       </div>
     </div>

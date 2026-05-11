@@ -1,4 +1,5 @@
 import svg from "@/assets/svg";
+import { Button } from "@/shared/ui/Button";
 
 export default function DashboardPage() {
   return (
@@ -15,13 +16,13 @@ export default function DashboardPage() {
         </p>
 
         <div className="flex items-center gap-4">
-          <button className="bg-crimson-red px-6 py-3 text-peach rounded-lg transition hover:-translate-y-0.5">
+          <Button variant="getStarted" size="lg">
             Get Started
-          </button>
+          </Button>
 
-          <button className="border border-crimson-red px-6 py-3 text-crimson-red rounded-lg transition hover:bg-crimson-red hover:text-peach">
+          <Button variant="learnMore" size="lg">
             Learn More
-          </button>
+          </Button>
         </div>
       </div>
 
