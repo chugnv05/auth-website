@@ -1,6 +1,53 @@
 # 🚀 Auth Basic Website
 
-## Library
+## 📸 website authentication/dashboard
+
+![The Sun](./public/the-sun.png)
+
+## ✨ About This Project
+
+- React + TypeScript
+- Vite
+- React Router
+- React Query
+- Zustand
+- TailwindCSS v4
+- shadcn/ui
+- React Hook Form + Zod
+
+## 🛠️ Teah Stack
+
+| Core       |
+| ---------- |
+| React 19   |
+| TypeScript |
+| Vite 8     |
+|            |
+|            |
+|            |
+|            |
+|            |
+
+| UI/ Styling              |
+| ------------------------ |
+| TailwindCSS 4            |
+| shadcn/ui                |
+| Radix UI                 |
+| lucide-react             |
+| sonner                   |
+| class-variance-authority |
+| tailwind-merge           |
+|                          |
+
+| State management |
+| ---------------- |
+| Zustand          |
+
+| Form validation     |
+| ------------------- |
+| react-hook-form     |
+| zod                 |
+| @hookform/resolvers |
 
 ## Shadcn/ui component in project
 
