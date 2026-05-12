@@ -33,6 +33,12 @@ const buttonVariants = cva(
         menu: "bg-crimson-red text-peach hover:bg-peach hover:text-crimson-red gently-emerge",
 
         authBlock: "w-full py-5 bg-crimson-red text-peach hover:bg-crimson",
+
+        getStarted:
+          "bg-crimson-red px-6 py-3 text-peach rounded-lg transition hover:-translate-y-0.5",
+
+        learnMore:
+          "border border-crimson-red px-6 py-3 text-crimson-red rounded-lg transition hover:bg-crimson-red hover:text-peach",
       },
       size: {
         default: "h-9 px-4 py-2",

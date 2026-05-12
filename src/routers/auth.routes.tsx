@@ -1,4 +1,5 @@
 import LoginPage from "@/pages/auth/LoginPage";
+import RegisterPage from "@/pages/auth/RegisterPage";
 
 export const authRoutes = [
   {
@@ -7,6 +8,6 @@ export const authRoutes = [
   },
   {
     path: "register",
-    element: <LoginPage />,
+    element: <RegisterPage />,
   },
 ];

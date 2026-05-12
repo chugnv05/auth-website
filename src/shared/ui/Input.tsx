@@ -22,12 +22,13 @@ const inputVariants = cva(
         ],
         ghost: ["rounded-full border-border bg-muted/50", "focus-visible:bg-background"],
         search: ["rounded-full border-boder bg-muted/50", "focus-visiable:bg-background"],
-        auth: [
+        basic: [
           "border-crimson-red/20 bg-white",
           "focus-visible: border-crimson-red",
           "focus-visible: ring-crimson-red/20",
           "shadow-sm",
         ],
+        checkBox: "w-4 h-4",
       },
       size: {
         sm: "h-9, text-sm",

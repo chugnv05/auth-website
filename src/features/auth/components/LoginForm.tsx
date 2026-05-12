@@ -1,59 +1,43 @@
 import { PATHS } from "@/routers/paths";
 import { Button } from "@/shared/ui/Button";
 import { Input } from "@/shared/ui/Input";
+import { Label } from "@/shared/ui/label";
 import { Link } from "react-router-dom";
 
 export default function LoginForm() {
   return (
     <form className="space-y-6 text-crimson-red">
       <div className="space-y-2">
-        <label htmlFor="email" className="text-sm">
-          Email
-        </label>
+        <Label variant="basic">Email*</Label>
 
-        <Input
-          id="email"
-          type="email"
-          placeholder="Enter your email"
-          className="w-full rounded-xl border border-crimson-red px-4 py-3 outline-none transition focus:border-primary"
-        />
+        <Input variant="basic" type="email" placeholder="Enter your email" />
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="password" className="text-sm font-medium">
-          Password
-        </label>
+        <Label variant="basic">Password*</Label>
 
-        <input
-          id="password"
-          type="password"
-          placeholder="Enter your password"
-          className="w-full rounded-xl border border-crimson-red px-4 py-3 outline-none transition focus:border-primary"
-        />
+        <Input variant="basic" placeholder="Enter your password" />
       </div>
 
-      <div
-        className="flex items-center justify-between
-      "
-      >
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" />
+      <div className="flex items-center justify-between">
+        <Label variant="basic">
+          <Input variant="checkBox" type="checkbox" />
           <span> Remember me</span>
-        </label>
+        </Label>
 
         <Link to={PATHS.FORGOT_PASSWORD} className="text-sm hover:underline">
-          Forgot password?
+          Forgot password
         </Link>
       </div>
 
-      <Button variant="authBlock" type="submit">
+      <Button variant="authBlock" size="lg" type="submit">
         Sign in
       </Button>
 
       <p className="text-sm">
         Don't have an account?{" "}
         <Link to={PATHS.REGISTER} className="font-semibold hover:underline">
-          Create now
+          Register now
         </Link>
       </p>
     </form>

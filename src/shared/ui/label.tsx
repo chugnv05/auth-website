@@ -17,7 +17,7 @@ const labelVariants = cva(
         mute: "text-muted-foreground",
         error: "text-destructive",
         success: "text-deep-jungle-green",
-        auth: "text-crimson-red",
+        basic: "text-crimson-red",
       },
 
       size: {
