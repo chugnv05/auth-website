@@ -9,21 +9,21 @@ export default function RegisterForm() {
   return (
     <form className="space-y-6 text-crimson-red">
       <div className="flex gap-4">
-        <div className="space-y-2">
+        <div className="space-y-2 w-full">
           <Label variant="basic">First Name*</Label>
 
           <Input variant="basic" placeholder="Enter your first name" />
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2 w-full">
           <Label variant="basic">Last Name*</Label>
 
           <Input variant="basic" placeholder="Enter your last name" />
         </div>
       </div>
 
-      <div className="flex justify-between">
-        <div className="space-y-2 w-[48%]">
+      <div className="flex gap-4">
+        <div className="space-y-2 w-full">
           <Label variant="basic">Gender*</Label>
 
           <Select>
@@ -40,7 +40,7 @@ export default function RegisterForm() {
           </Select>
         </div>
 
-        <div className="space-y-2 w-[48%]">
+        <div className="space-y-2 w-full">
           <Label variant="basic">Date Of Birth*</Label>
 
           <Input variant="basic" type="date" placeholder="Enter your last name" />
