@@ -1,5 +1,5 @@
-import { api } from "@/shared/lib/axios";
-import type { LoginPayload, LoginResponse } from "../types/auth.type";
+import { api } from "@/shared/api/axios";
+import type { LoginPayload, LoginResponse } from "../../auth.type";
 
 type AnyObject = Record<string, unknown>;
 

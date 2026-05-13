@@ -1,4 +1,4 @@
-import svg from "@/assets/svg";
+import svg from "@/shared/assets/svg";
 import { Outlet } from "react-router-dom";
 
 export default function AuthLayout() {

@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { User } from "../types/auth.type";
-import { tokenStorage } from "../utils/token-storage";
+import { User } from "../../auth/auth.type";
+import { tokenStorage } from "../token-storage";
 
 type AuthState = {
   user: User | null;
