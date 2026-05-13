@@ -1,0 +1,161 @@
+D:\SOURCECODE\VISUALSTUDIOCODE\MY-PROJECTS\AUTH-WEBSITE\PUBLIC
+    favicon.svg
+    icons.svg
+    logo.jpg
+    the-sun.png
+
+D:\SOURCECODE\VISUALSTUDIOCODE\MY-PROJECTS\AUTH-WEBSITE\SRC
+│   App.tsx
+│   index.css
+│   main.tsx
+│   vite-env.d.ts
+│
+├───app
+│       providers.tsx
+│       store.tsx
+│
+├───assets
+│   │   hero.png
+│   │   react.svg
+│   │   vite.svg
+│   │
+│   ├───fonts
+│   ├───gifs
+│   │       crimson-red-logo.gif
+│   │       index.ts
+│   │
+│   ├───icons
+│   ├───images
+│   │       crimson-red-logo.png
+│   │       index.ts
+│   │       team-work-a.png
+│   │       team-work-b.png
+│   │       text-crimson-red-the-sun.png
+│   │       text-peach-the-sun.png
+│   │
+│   ├───styles
+│   │       global.css
+│   │       index.css
+│   │
+│   └───svg
+│           crimson-red-logo.svg
+│           index.ts
+│           team-work-a.svg
+│           team-work-b.svg
+│           text-crimson-red-the-sun.svg
+│           text-peach-the-sun.svg
+│
+├───features
+│   ├───auth
+│   │   ├───components
+│   │   │       LoginForm.tsx
+│   │   │       RegisterForm.tsx
+│   │   │
+│   │   ├───constants
+│   │   │       auth.constants.ts
+│   │   │
+│   │   ├───hooks
+│   │   │       useLogin.tsx
+│   │   │
+│   │   ├───schemas
+│   │   │       login.schema.ts
+│   │   │
+│   │   ├───services
+│   │   │       auth.service.ts
+│   │   │
+│   │   ├───stores
+│   │   │       auth.store.ts
+│   │   │
+│   │   ├───types
+│   │   │       auth.type.ts
+│   │   │
+│   │   └───utils
+│   │           token-storage.ts
+│   │
+│   ├───permission
+│   ├───role
+│   └───user
+├───layouts
+│   ├───auth
+│   │       AuthLayout.tsx
+│   │
+│   ├───main
+│   │       Footer.tsx
+│   │       Header.tsx
+│   │       index.tsx
+│   │       MobileMenu.tsx
+│   │
+│   └───public
+│           index.tsx
+│
+├───pages
+│   ├───auth
+│   │       LoginPage.tsx
+│   │       RegisterPage.tsx
+│   │
+│   ├───dashboard
+│   │       index.tsx
+│   │
+│   ├───not-found
+│   └───profile
+├───routers
+│   │   auth.routes.tsx
+│   │   index.tsx
+│   │   paths.ts
+│   │   protected.routes.tsx
+│   │   public.routes.tsx
+│   │   route.types.ts
+│   │
+│   └───guards
+│           ProtectedRoute.tsx
+│           PublicOnlyRoute.tsx
+│           RoleGuard.tsx
+│
+└───shared
+    ├───components
+    │       Loading.tsx
+    │
+    ├───config
+    │       app.config.ts
+    │       env.ts
+    │       footer.data.ts
+    │       nav.data.ts
+    │
+    ├───hooks
+    │       usePagination.ts
+    │
+    ├───lib
+    │       axios.ts
+    │       query-client.ts
+    │       utils.ts
+    │
+    ├───stores
+    │       modal.store.ts
+    │       theme.store.ts
+    │
+    ├───types
+    │       api-response.type.ts
+    │       common.type.ts
+    │
+    ├───ui
+    │       Avatar.tsx
+    │       Badge.tsx
+    │       Button.tsx
+    │       Card.tsx
+    │       Dialog.tsx
+    │       Dropdown-menu.tsx
+    │       Form.tsx
+    │       Input.tsx
+    │       label.tsx
+    │       Select.tsx
+    │       Separator.tsx
+    │       Sheet.tsx
+    │       Skeleton.tsx
+    │       Sonner.tsx
+    │       Table.tsx
+    │       Tabs.tsx
+    │       Textarea.tsx
+    │       Tooltip.tsx
+    │
+    └───utils
+            format-date.ts
