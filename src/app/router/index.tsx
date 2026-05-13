@@ -1,5 +1,5 @@
-import AuthLayout from "@/layouts/auth/AuthLayout";
-import MainLayout from "@/layouts/main";
+import AuthLayout from "@/layouts/auth-layout/AuthLayout";
+import MainLayout from "@/layouts/main-layout";
 import DashboardPage from "@/pages/dashboard";
 import { createBrowserRouter } from "react-router-dom";
 import { authRoutes } from "./auth.routes";

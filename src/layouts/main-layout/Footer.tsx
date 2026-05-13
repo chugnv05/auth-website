@@ -1,4 +1,4 @@
-import images from "@/assets/images";
+import images from "@/shared/assets/images";
 import { footerData, socialLinks } from "@/shared/config/footer.data";
 import { Copyright } from "lucide-react";
 import { Link } from "react-router-dom";

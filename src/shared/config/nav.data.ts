@@ -1,4 +1,4 @@
-import { PATHS } from "@/routers/paths";
+import { PATHS } from "@/app/router/paths";
 import { BadgeInfo, BadgeQuestionMark, House } from "lucide-react";
 import { IconType } from "react-icons/lib";
 

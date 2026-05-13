@@ -1,4 +1,4 @@
-import svg from "@/assets/svg";
+import svg from "@/shared/assets/svg";
 import { Button } from "@/shared/ui/Button";
 
 export default function DashboardPage() {

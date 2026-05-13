@@ -1,5 +1,5 @@
-import svg from "@/assets/svg";
-import { PATHS } from "@/routers/paths";
+import { PATHS } from "@/app/router/paths";
+import svg from "@/shared/assets/svg";
 import { navItems } from "@/shared/config/nav.data";
 import { Button } from "@/shared/ui/Button";
 import { Link } from "react-router-dom";

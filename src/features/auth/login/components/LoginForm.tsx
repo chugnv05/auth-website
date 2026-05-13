@@ -1,4 +1,4 @@
-import { PATHS } from "@/routers/paths";
+import { PATHS } from "@/app/router/paths";
 import { Button } from "@/shared/ui/Button";
 import { Input } from "@/shared/ui/Input";
 import { Label } from "@/shared/ui/label";

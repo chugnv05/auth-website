@@ -1,5 +1,5 @@
-import { AUTH_STORAGE_KEYS } from "../constants/auth.constants";
-import { AuthTokens, User } from "../types/auth.type";
+import { AUTH_STORAGE_KEYS } from "../auth/auth.constants";
+import { AuthTokens, User } from "../auth/auth.type";
 
 export const tokenStorage = {
   getAccessToken() {
@@ -9,8 +9,8 @@ export const tokenStorage = {
   setTokens(tokens: AuthTokens) {
     localStorage.setItem(AUTH_STORAGE_KEYS.ACCESS_TOKEN, tokens.accessToken);
 
-    if (tokens.refreshRoken) {
-      localStorage.setItem(AUTH_STORAGE_KEYS.REFRESH_TOKEN, tokens.refreshRoken);
+    if (tokens.refreshToken) {
+      localStorage.setItem(AUTH_STORAGE_KEYS.REFRESH_TOKEN, tokens.refreshToken);
     }
   },
 

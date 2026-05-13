@@ -1,4 +1,4 @@
-import svg from "@/assets/svg";
+import svg from "@/shared/assets/svg";
 import { navMobileItems } from "@/shared/config/nav.data";
 import { Button } from "@/shared/ui/Button";
 import { Sheet, SheetContent, SheetTrigger } from "@/shared/ui/Sheet";
