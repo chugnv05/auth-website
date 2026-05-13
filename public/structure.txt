@@ -39,12 +39,12 @@
 │       ├───api
 │       ├───model
 │       ├───types
+│       │       user-role.type.ts
+│       │       user.type.ts
+│       │
 │       └───ui
 ├───features
 │   ├───auth
-│   │   │   auth.constants.ts
-│   │   │   auth.type.ts
-│   │   │
 │   │   ├───forgot-password
 │   │   ├───login
 │   │   │   │   index.ts
@@ -62,6 +62,9 @@
 │   │   │   │       auth.service.ts
 │   │   │   │
 │   │   │   └───types
+│   │   │           login-payload.type.ts
+│   │   │           login-response.type.ts
+│   │   │
 │   │   ├───logout
 │   │   └───register
 │   │       │   index.ts
@@ -77,12 +80,19 @@
 │   ├───role
 │   ├───session
 │   │   │   index.ts
-│   │   │   token-storage.ts
+│   │   │
+│   │   ├───constants
+│   │   │       auth-storage.constants.ts
 │   │   │
 │   │   ├───hooks
 │   │   ├───services
+│   │   │       token-storage.service.ts
+│   │   │
 │   │   ├───stores
-│   │   │       auth.store.ts
+│   │   │       session.store.ts
+│   │   │
+│   │   ├───types
+│   │   │       auth-token.type.ts
 │   │   │
 │   │   └───utils
 │   └───user
