@@ -1,5 +1,6 @@
-import { AUTH_STORAGE_KEYS } from "../auth/auth.constants";
-import { AuthTokens, User } from "../auth/auth.type";
+import { User } from "@/entities/user/types/user.type";
+import { AUTH_STORAGE_KEYS } from "../constants/auth-storage.constants";
+import { AuthTokens } from "../types/auth-token.type";
 
 export const tokenStorage = {
   getAccessToken() {

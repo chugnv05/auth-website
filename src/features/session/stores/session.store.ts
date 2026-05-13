@@ -1,6 +1,6 @@
+import { User } from "@/entities/user/types/user.type";
 import { create } from "zustand";
-import { User } from "../../auth/auth.type";
-import { tokenStorage } from "../token-storage";
+import { tokenStorage } from "../services/token-storage.service";
 
 type AuthState = {
   user: User | null;
@@ -9,7 +9,7 @@ type AuthState = {
   clearAuth: () => void;
 };
 
-export const useAuthStore = create<AuthState>((set) => {
+export const useSessionStore = create<AuthState>((set) => {
   const user = tokenStorage.getUser();
   const accessToken = tokenStorage.getAccessToken();
 

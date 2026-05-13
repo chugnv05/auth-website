@@ -1,9 +1,9 @@
-import { tokenStorage } from "@/features/session/token-storage";
+import { tokenStorage } from "@/features/session/services/token-storage.service";
+import { useSessionStore } from "@/features/session/stores/session.store";
 import { ApiError } from "@/shared/types/api-response.type";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
-import { useAuthStore } from "../../../session/stores/auth.store";
 import { authService } from "../services/auth.service";
 
 function getErrorMessage(error: unknown) {
@@ -17,7 +17,7 @@ function getErrorMessage(error: unknown) {
 }
 
 export function useLogin() {
-  const setAuth = useAuthStore((state) => state.setAuth);
+  const setAuth = useSessionStore((state) => state.setAuth);
 
   return useMutation({
     mutationFn: authService.login,
