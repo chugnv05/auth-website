@@ -14,7 +14,7 @@
 │   │
 │   ├───config
 │   ├───providers
-│   │       providers.tsx
+│   │       index.tsx
 │   │
 │   ├───router
 │   │   │   auth.routes.tsx
@@ -169,6 +169,8 @@
 │   │       usePagination.ts
 │   │
 │   ├───lib
+│   │       has-permisson.ts
+│   │       has-role.ts
 │   │       utils.ts
 │   │
 │   ├───types

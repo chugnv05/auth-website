@@ -5,7 +5,7 @@ import { Label } from "@/shared/ui/label";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useLogin } from "../hooks/useLogin";
+import useLogin from "../hooks/useLogin";
 import { LoginFormValues, loginSchema } from "../schemas/login.schema";
 
 export default function LoginForm() {

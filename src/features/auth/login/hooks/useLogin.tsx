@@ -4,7 +4,7 @@ import { ApiError } from "@/shared/types/api-response.type";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
-import { authService } from "../services/auth.service";
+import { loginService } from "../services/login.service";
 
 function getErrorMessage(error: unknown) {
   const axiosError = error as AxiosError<ApiError>;
@@ -16,11 +16,11 @@ function getErrorMessage(error: unknown) {
   );
 }
 
-export function useLogin() {
+export default function useLogin() {
   const setAuth = useSessionStore((state) => state.setAuth);
 
   return useMutation({
-    mutationFn: authService.login,
+    mutationFn: loginService.login,
     onSuccess: (result) => {
       tokenStorage.setTokens(result.tokens);
       tokenStorage.setUser(result.user);

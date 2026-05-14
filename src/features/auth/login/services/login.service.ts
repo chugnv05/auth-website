@@ -1,5 +1,6 @@
 import { api } from "@/shared/api/axios";
-import type { LoginPayload, LoginResponse } from "../../auth.type";
+import { LoginPayload } from "../types/login-payload.type";
+import { LoginResponse } from "../types/login-response.type";
 
 type AnyObject = Record<string, unknown>;
 
@@ -61,7 +62,7 @@ function unwrapLoginResponse(payload: unknown): LoginResponse {
   throw new Error("Invalid login response format from API.");
 }
 
-export const authService = {
+export const loginService = {
   async login(payload: LoginPayload) {
     const response = await api.post("/auth/login", payload);
     return unwrapLoginResponse(response.data);
