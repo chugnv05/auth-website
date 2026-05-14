@@ -8,7 +8,7 @@ import PublicOnlyRoute from "./guards/PublicOnlyRoute";
 import { protectedRoutes } from "./protected.routes";
 import { publicRoutes } from "./public.routes";
 
-export const router = createBrowserRouter([
+export const appRouter = createBrowserRouter([
   // Public
   {
     path: "/",
