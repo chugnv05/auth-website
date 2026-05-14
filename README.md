@@ -66,3 +66,10 @@
 | skeleton  | loading             |
 | tooltip   | hover info          |
 | toast     | notification        |
+
+## 🗿 Start
+
+- 1. Create .env -> copy content from .env.example -> field to .env
+- 2. npm install
+- 3. npm run build
+- 4. npm run dev
