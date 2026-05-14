@@ -13,6 +13,8 @@
 │   │   App.tsx
 │   │
 │   ├───config
+│   │       index.ts
+│   │
 │   ├───providers
 │   │       index.tsx
 │   │
@@ -26,26 +28,59 @@
 │   │   └───guards
 │   │           ProtectedRoute.tsx
 │   │           PublicOnlyRoute.tsx
-│   │           RoleGuard.tsx
 │   │
 │   ├───store
+│   │       index.ts
+│   │
 │   └───styles
 │           index.css
 │
 ├───entities
 │   ├───permisson
+│   │   ├───api
+│   │   │       index.ts
+│   │   │
+│   │   ├───model
+│   │   │       index.ts
+│   │   │
+│   │   ├───types
+│   │   │       index.ts
+│   │   │
+│   │   └───ui
+│   │           index.ts
+│   │
 │   ├───role
+│   │   ├───api
+│   │   │       index.ts
+│   │   │
+│   │   ├───model
+│   │   │       index.ts
+│   │   │
+│   │   ├───types
+│   │   │       index.ts
+│   │   │
+│   │   └───ui
+│   │           index.ts
+│   │
 │   └───user
 │       ├───api
+│       │       index.ts
+│       │
 │       ├───model
+│       │       index.ts
+│       │
 │       ├───types
 │       │       user-role.type.ts
 │       │       user.type.ts
 │       │
 │       └───ui
+│               index.ts
+│
 ├───features
 │   ├───auth
 │   │   ├───forgot-password
+│   │   │       index.ts
+│   │   │
 │   │   ├───login
 │   │   │   │   index.ts
 │   │   │   │
@@ -59,13 +94,15 @@
 │   │   │   │       login.schema.ts
 │   │   │   │
 │   │   │   ├───services
-│   │   │   │       auth.service.ts
+│   │   │   │       login.service.ts
 │   │   │   │
 │   │   │   └───types
 │   │   │           login-payload.type.ts
 │   │   │           login-response.type.ts
 │   │   │
 │   │   ├───logout
+│   │   │       index.ts
+│   │   │
 │   │   └───register
 │   │       │   index.ts
 │   │       │
@@ -95,6 +132,9 @@
 │   │   │       auth-token.type.ts
 │   │   │
 │   │   └───utils
+│   │           has-permisson.ts
+│   │           has-role.ts
+│   │
 │   └───user
 ├───layouts
 │   ├───auth-layout
@@ -169,8 +209,6 @@
 │   │       usePagination.ts
 │   │
 │   ├───lib
-│   │       has-permisson.ts
-│   │       has-role.ts
 │   │       utils.ts
 │   │
 │   ├───types
