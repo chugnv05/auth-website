@@ -1,7 +1,7 @@
 import { PATHS } from "@/app/router/paths";
 import svg from "@/shared/assets/svg";
 import { navItems } from "@/shared/config/nav.data";
-import { Button } from "@/shared/ui/Button";
+import { Button } from "@/shared/ui";
 import { Link } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 

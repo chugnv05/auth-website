@@ -5,8 +5,8 @@
       "@app/*": ["./src/app/*"],
       "@features/*": ["./src/features/*"],
       "@shared/*": ["./src/shared/*"]
-    },
-    "jsx": "react-jsx"
+    }
   },
-  "include": ["src"]
+  "include": [],
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }

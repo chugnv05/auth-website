@@ -1,7 +1,6 @@
 import svg from "@/shared/assets/svg";
 import { navMobileItems } from "@/shared/config/nav.data";
-import { Button } from "@/shared/ui/Button";
-import { Sheet, SheetContent, SheetTrigger } from "@/shared/ui/Sheet";
+import { Button, Sheet, SheetContent, SheetTrigger } from "@/shared/ui";
 import { PanelRight } from "lucide-react";
 import { Link } from "react-router-dom";
 

@@ -1,7 +1,5 @@
 import { PATHS } from "@/app/router/paths";
-import { Button } from "@/shared/ui/Button";
-import { Input } from "@/shared/ui/Input";
-import { Label } from "@/shared/ui/label";
+import { Button, Input, Label } from "@/shared/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
@@ -9,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import useLogin from "../hooks/useLogin";
-import { loginSchema, LoginSchemaType } from "../schemas/login.schema";
+import { loginSchema, type LoginSchemaType } from "../schemas/login.schema";
 
 export default function LoginForm() {
   const navigate = useNavigate();
