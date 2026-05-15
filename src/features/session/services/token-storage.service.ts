@@ -1,4 +1,4 @@
-import { User } from "@/entities/user/types/user.type";
+import { User } from "@/features/auth/store/auth.store";
 import { AUTH_STORAGE_KEYS } from "../constants/auth-storage.constants";
 import { AuthTokens } from "../types/auth-token.type";
 

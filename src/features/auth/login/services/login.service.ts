@@ -1,5 +1,5 @@
-import { api } from "@/shared/api/axios";
-import { LoginPayload } from "../types/login-payload.type";
+import { httpClient } from "@/shared/api/httpClient";
+import { LoginPayload } from "../types/login-request.type";
 import { LoginResponse } from "../types/login-response.type";
 
 type AnyObject = Record<string, unknown>;
@@ -64,7 +64,7 @@ function unwrapLoginResponse(payload: unknown): LoginResponse {
 
 export const loginService = {
   async login(payload: LoginPayload) {
-    const response = await api.post("/auth/login", payload);
+    const response = await httpClient.post("/auth/login", payload);
     return unwrapLoginResponse(response.data);
   },
 };

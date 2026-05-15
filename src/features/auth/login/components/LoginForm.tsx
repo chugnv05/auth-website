@@ -3,16 +3,19 @@ import { Button } from "@/shared/ui/Button";
 import { Input } from "@/shared/ui/Input";
 import { Label } from "@/shared/ui/label";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import useLogin from "../hooks/useLogin";
-import { LoginFormValues, loginSchema } from "../schemas/login.schema";
+import { loginSchema, LoginSchemaType } from "../schemas/login.schema";
 
 export default function LoginForm() {
   const navigate = useNavigate();
   const loginMutation = useLogin();
 
-  const form = useForm<LoginFormValues>({
+  const form = useForm<LoginSchemaType>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: "",
@@ -21,43 +24,53 @@ export default function LoginForm() {
     },
   });
 
-  const onSubmit: SubmitHandler<LoginFormValues> = async (values) => {
-    await loginMutation.mutateAsync(values);
-    navigate(PATHS.DASHBOARD);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const onSubmit = async (values: LoginSchemaType) => {
+    try {
+      await loginMutation.mutateAsync(values);
+
+      toast.success("Login successful");
+
+      navigate(PATHS.REGISTER);
+    } catch (error) {
+      toast.error("Invalid email or password");
+    }
   };
 
-  const handleSubmit = form.handleSubmit(onSubmit);
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 text-crimson-red onSubm">
+    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 text-crimson-red onSubm">
       <div className="space-y-2">
         <Label variant="basic">Email*</Label>
 
         <Input
           variant="basic"
           id="email"
-          // type="email"
+          type="email"
           placeholder="Enter your email"
-          {...form.register("email")}
+          {...form.register("email")} //theo doi value
         />
-        {form.formState.errors.email ? (
-          <p className="text-xs text-destructive">{form.formState.errors.email.message}</p>
-        ) : null}
       </div>
 
       <div className="space-y-2">
         <Label variant="basic">Password*</Label>
 
-        <Input
-          variant="basic"
-          id="password"
-          type="password"
-          placeholder="Enter your password"
-          {...form.register("password")}
-        />
-        {form.formState.errors.password ? (
-          <p className="text-xs text-destructive">{form.formState.errors.password.message}</p>
-        ) : null}
+        <div className="relative">
+          <Input
+            variant="basic"
+            id="password"
+            type={showPassword ? "text" : "password"}
+            placeholder="Enter your password"
+            {...form.register("password")}
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+            className="absolute right-3 top-1/2 -translate-y-1/2"
+          >
+            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+          </button>
+        </div>
       </div>
 
       <div className="flex items-center justify-between">
