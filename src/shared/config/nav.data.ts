@@ -1,6 +1,6 @@
 import { PATHS } from "@/app/router/paths";
 import { BadgeInfo, BadgeQuestionMark, House } from "lucide-react";
-import { IconType } from "react-icons/lib";
+import type { IconType } from "react-icons/lib";
 
 type IconComponent = React.ComponentType<{ className?: string }> | IconType;
 
