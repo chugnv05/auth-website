@@ -13,7 +13,7 @@ httpClient.interceptors.request.use((config) => {
 });
 
 let isRefreshing = false;
-let queue: any[] = [];
+let queue: ((token: string | null) => void)[] = [];
 
 const processQueue = (token: string | null) => {
   queue.forEach((cb) => cb(token));
@@ -27,8 +27,12 @@ httpClient.interceptors.response.use(
 
     if (error.response?.status === 401 && !originalRequest._retry) {
       if (isRefreshing) {
-        return new Promise((resolve) => {
-          queue.push((token: string) => {
+        return new Promise((resolve, reject) => {
+          queue.push((token: string | null) => {
+            if (!token) {
+              reject(new Error("Session expired"));
+              return;
+            }
             originalRequest.headers.Authorization = `Bearer ${token}`;
             resolve(httpClient(originalRequest));
           });
@@ -39,9 +43,10 @@ httpClient.interceptors.response.use(
       isRefreshing = true;
 
       try {
+        // Dùng axios trực tiếp (không qua httpClient) để tránh vòng lặp interceptor
         const res = await axios.post(`${ENV.API_URL}/auth/refresh`, {}, { withCredentials: true });
 
-        const newAccessToken = res.data.accessToken;
+        const newAccessToken = res.data.accessToken as string;
         useAuthStore.setState({
           accessToken: newAccessToken,
         });
@@ -52,6 +57,7 @@ httpClient.interceptors.response.use(
 
         return httpClient(originalRequest);
       } catch (error) {
+        processQueue(null);
         useAuthStore.getState().logout();
         window.location.href = "/login";
 

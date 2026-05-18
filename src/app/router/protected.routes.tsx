@@ -1,4 +1,4 @@
-import DashboardPage from "@/pages/dashboard";
+import DashboardPage from "@/pages/home/HomePage";
 
 export const protectedRoutes = [
   {

@@ -1,8 +1,8 @@
-import DashboardPage from "@/pages/dashboard";
+import HomePage from "@/pages/home/HomePage";
 
 export const publicRoutes = [
   {
     index: true,
-    element: <DashboardPage />,
+    element: <HomePage />,
   },
 ];

@@ -19,7 +19,6 @@ type AuthState = {
 
   setInitializing: (value: boolean) => void;
 };
-
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   accessToken: null,
@@ -39,6 +38,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       user: null,
       accessToken: null,
       isAuthenticated: false,
+      isInitializing: false,
     }),
 
   setInitializing: (value) =>

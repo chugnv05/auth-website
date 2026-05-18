@@ -1,7 +1,7 @@
 import svg from "@/shared/assets/svg";
 import { Button } from "@/shared/ui";
 
-export default function DashboardPage() {
+export default function HomePage() {
   return (
     <section className="page-container min-h-(calc(100vh-var(--header-height))) grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
       <div className="space-y-6">

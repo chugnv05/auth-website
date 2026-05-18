@@ -30,7 +30,7 @@ export default function LoginForm() {
 
       toast.success("Login successful");
 
-      navigate(PATHS.REGISTER);
+      navigate(PATHS.DASHBOARD);
     } catch (error) {
       toast.error("Invalid email or password");
     }

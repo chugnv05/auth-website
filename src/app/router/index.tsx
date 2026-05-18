@@ -1,10 +1,10 @@
 import AuthLayout from "@/layouts/auth-layout/AuthLayout";
 import MainLayout from "@/layouts/main-layout";
-import DashboardPage from "@/pages/dashboard";
+import HomePage from "@/pages/home/HomePage";
 import { createBrowserRouter } from "react-router-dom";
-import { authRoutes } from "./auth.routes";
 import ProtectedRoute from "./guards/ProtectedRoute";
 import PublicOnlyRoute from "./guards/PublicOnlyRoute";
+import { guestRoutes } from "./guest.routes";
 import { protectedRoutes } from "./protected.routes";
 import { publicRoutes } from "./public.routes";
 
@@ -16,13 +16,13 @@ export const appRouter = createBrowserRouter([
     children: publicRoutes,
   },
 
-  // Auth
+  // Guest
   {
     element: <PublicOnlyRoute />,
     children: [
       {
         element: <AuthLayout />,
-        children: authRoutes,
+        children: guestRoutes,
       },
     ],
   },
@@ -32,7 +32,7 @@ export const appRouter = createBrowserRouter([
     element: <ProtectedRoute />,
     children: [
       {
-        element: <DashboardPage />,
+        element: <HomePage />,
         children: protectedRoutes,
       },
     ],

@@ -7,7 +7,7 @@ const labelVariants = cva(
   [
     "text-sm font-medium leading-none",
     "peer-disabled:cursor-not-allowed",
-    "peer-disable:opacity-50",
+    "peer-disabled:opacity-50",
     "transition-colors duration-200",
   ],
   {
