@@ -2,7 +2,7 @@ import { LINKS, PATHS } from "@/app/router/paths";
 import { FileUser, Mail, MapPinHouse, Phone } from "lucide-react";
 import React from "react";
 import { FaFacebook, FaGithub, FaTelegramPlane, FaTiktok, FaYoutube } from "react-icons/fa";
-import { IconType } from "react-icons/lib";
+import type { IconType } from "react-icons/lib";
 
 type IconComponent = React.ComponentType<{ className?: string }> | IconType;
 
