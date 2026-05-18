@@ -25,3 +25,7 @@ dist-ssr
 
 # Config
 .env
+.claude
+.gitnexus
+AGENTS.md
+CLAUDE.md
