@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { authApi } from "../auth/api/auth.api";
-import { useAuthStore } from "../auth/store/auth.store";
+import { authApi } from "../api/auth.api";
+import { useAuthStore } from "../store/auth.store";
 
 // call api refresh
 // be doc refresh token cookie

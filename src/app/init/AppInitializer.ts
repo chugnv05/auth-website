@@ -1,4 +1,4 @@
-import { useAuthInit } from "@/features/hooks/useAuthInit";
+import { useAuthInit } from "@/features/auth/hooks/useAuthInit";
 
 export function AppInitializer() {
   useAuthInit();

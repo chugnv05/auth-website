@@ -1,6 +1,14 @@
 import svg from "@/shared/assets/svg";
 import { navMobileItems } from "@/shared/config/nav.data";
-import { Button, Sheet, SheetContent, SheetTrigger } from "@/shared/ui";
+import {
+  Button,
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/shared/ui";
 import { PanelRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -15,6 +23,11 @@ export default function MobileMenu() {
         </SheetTrigger>
 
         <SheetContent side="right" className="px-2 bg-peach text-crimson-red rounded-lg">
+          <SheetHeader className="sr-only">
+            <SheetTitle></SheetTitle>
+
+            <SheetDescription></SheetDescription>
+          </SheetHeader>
           <div className="flex flex-col gap-4 mt-5 text-peach">
             <Link to="/">
               <img

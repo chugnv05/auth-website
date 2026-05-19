@@ -101,7 +101,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
 
           "text-crimson-red",
 
-          "[&:has([role=checkbox])]:pr-0",
+          "(has-[[role=checkbox]]:pr-0)",
         ],
         className,
       )}
@@ -122,7 +122,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
 
           "text-crimson-red/80",
 
-          "[&:has([role=checkbox])]:pr-0",
+          "(has-[[role=checkbox]]:pr-0)",
         ],
         className,
       )}
