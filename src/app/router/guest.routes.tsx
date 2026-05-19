@@ -1,13 +1,14 @@
 import LoginPage from "@/pages/login/LoginPage";
 import RegisterPage from "@/pages/register/RegisterPage";
+import { PATHS } from "./paths";
 
 export const guestRoutes = [
   {
-    path: "login",
+    path: PATHS.LOGIN,
     element: <LoginPage />,
   },
   {
-    path: "register",
+    path: PATHS.REGISTER,
     element: <RegisterPage />,
   },
 ];

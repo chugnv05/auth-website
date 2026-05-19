@@ -1,5 +1,6 @@
 import { useAuthStore } from "@/features/auth/store/auth.store";
 import { Navigate, Outlet } from "react-router-dom";
+import { PATHS } from "../paths";
 
 export default function ProtectedRoute() {
   const accessToken = useAuthStore((s) => s.accessToken);
@@ -13,7 +14,7 @@ export default function ProtectedRoute() {
 
   if (!accessToken) {
     // chan protected router
-    return <Navigate to="/login" replace />;
+    return <Navigate to={PATHS.LOGIN} replace />;
   }
 
   return <Outlet />;

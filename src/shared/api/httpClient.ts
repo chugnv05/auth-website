@@ -1,6 +1,5 @@
 import axios from "axios"; // call API
 import { ENV } from "../config/env";
-import "./interceptors";
 
 export const httpClient = axios.create({
   baseURL: ENV.API_URL,

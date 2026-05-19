@@ -1,6 +1,6 @@
 import AuthLayout from "@/layouts/auth-layout/AuthLayout";
 import MainLayout from "@/layouts/main-layout";
-import HomePage from "@/pages/home/HomePage";
+import DashboardPage from "@/pages/dashboard/DashboardPage";
 import { createBrowserRouter } from "react-router-dom";
 import ProtectedRoute from "./guards/ProtectedRoute";
 import PublicOnlyRoute from "./guards/PublicOnlyRoute";
@@ -32,7 +32,7 @@ export const appRouter = createBrowserRouter([
     element: <ProtectedRoute />,
     children: [
       {
-        element: <HomePage />,
+        element: <DashboardPage />,
         children: protectedRoutes,
       },
     ],

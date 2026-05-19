@@ -5,7 +5,6 @@ import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "sonner";
 import useLogin from "../hooks/useLogin";
 import { loginSchema, type LoginSchemaType } from "../schemas/login.schema";
 
@@ -25,15 +24,9 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = async (values: LoginSchemaType) => {
-    try {
-      await loginMutation.mutateAsync(values);
+    await loginMutation.mutateAsync(values);
 
-      toast.success("Login successful");
-
-      navigate(PATHS.DASHBOARD);
-    } catch (error) {
-      toast.error("Invalid email or password");
-    }
+    navigate(PATHS.DASHBOARD);
   };
 
   return (

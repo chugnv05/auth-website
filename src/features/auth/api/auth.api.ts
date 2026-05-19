@@ -1,9 +1,10 @@
+import { ENDPOINTS } from "@/shared/api/endpoints";
 import { httpClient } from "@/shared/api/httpClient";
-import type { LoginRequest } from "../login/types/login-request.type";
-import type { LoginResponse } from "../login/types/login-response.type";
+import type { ApiResponse } from "@/shared/api/types";
+import type { LoginRequest, LoginResponse } from "../login";
 
 export const authApi = {
-  login: (data: LoginRequest) => httpClient.post<LoginResponse>("/auth/login", data),
-  logout: () => httpClient.post("/auth/logout"),
-  refresh: () => httpClient.post("/auth/refresh"),
+  login: (data: LoginRequest) => httpClient.post<LoginResponse>(ENDPOINTS.AUTH.login, data),
+  logout: () => httpClient.post<ApiResponse>(ENDPOINTS.AUTH.logout),
+  refresh: () => httpClient.post<LoginResponse>(ENDPOINTS.AUTH.refresh),
 };

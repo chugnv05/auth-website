@@ -16,10 +16,15 @@ export function useAuthInit() {
       try {
         const response = await authApi.refresh();
 
-        setAuth({
-          user: response.data.user,
-          accessToken: response.data.accessToken,
-        });
+        const user = response.data.data;
+        const accessToken = response.data.meta?.tokenInfo?.accessToken;
+
+        if (!user || !accessToken) {
+          logout();
+          return;
+        }
+
+        setAuth({ user, accessToken });
       } catch {
         logout();
       } finally {

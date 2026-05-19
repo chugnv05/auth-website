@@ -1,6 +1,8 @@
+import { PATHS } from "@/app/router/paths";
 import { useAuthStore } from "@/features/auth/store/auth.store";
 import axios from "axios";
 import { ENV } from "../config/env";
+import { ENDPOINTS } from "./endpoints";
 import { httpClient } from "./httpClient";
 
 httpClient.interceptors.request.use((config) => {
@@ -24,8 +26,9 @@ httpClient.interceptors.response.use(
   (res) => res,
   async (error) => {
     const originalRequest = error.config;
+    const isRefreshRequest = originalRequest.url?.includes(ENDPOINTS.AUTH.refresh);
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    if (error.response?.status === 401 && !originalRequest._retry && !isRefreshRequest) {
       if (isRefreshing) {
         return new Promise((resolve, reject) => {
           queue.push((token: string | null) => {
@@ -44,7 +47,11 @@ httpClient.interceptors.response.use(
 
       try {
         // Dùng axios trực tiếp (không qua httpClient) để tránh vòng lặp interceptor
-        const res = await axios.post(`${ENV.API_URL}/auth/refresh`, {}, { withCredentials: true });
+        const res = await axios.post(
+          `${ENV.API_URL}${ENDPOINTS.AUTH.refresh}`,
+          {},
+          { withCredentials: true },
+        );
 
         const newAccessToken = res.data.accessToken as string;
         useAuthStore.setState({
@@ -59,7 +66,7 @@ httpClient.interceptors.response.use(
       } catch (error) {
         processQueue(null);
         useAuthStore.getState().logout();
-        window.location.href = "/login";
+        window.location.href = PATHS.LOGIN;
 
         return Promise.reject(error);
       } finally {
