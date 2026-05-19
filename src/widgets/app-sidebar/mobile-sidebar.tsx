@@ -12,7 +12,7 @@ import {
 import { PanelRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export default function MobileMenu() {
+export default function MobileSidebar() {
   return (
     <div className="md:hidden text-lg">
       <Sheet>
