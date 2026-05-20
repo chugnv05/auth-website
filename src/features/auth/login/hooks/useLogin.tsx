@@ -23,6 +23,7 @@ export default function useLogin() {
       setAuth({ user, accessToken });
       notify.success(res.data.message ?? MESSAGES.auth.loginSuccess);
     },
+
     onError: (error) => {
       notify.error(getErrorMessage(error));
     },

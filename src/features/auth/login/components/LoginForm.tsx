@@ -43,7 +43,12 @@ export default function LoginForm() {
       <div className="space-y-2">
         <Label variant="basic">Password*</Label>
 
-        <PasswordInput autoComplete="current-password" placeholder="Enter your password" />
+        <PasswordInput
+          id="password"
+          autoComplete="current-password"
+          placeholder="Enter your password"
+          {...form.register("password")}
+        />
       </div>
 
       <div className="flex items-center justify-between">

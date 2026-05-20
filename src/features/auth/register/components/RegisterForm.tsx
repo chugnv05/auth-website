@@ -37,7 +37,7 @@ export default function RegisterForm() {
 
           <Select>
             <SelectTrigger variant="auth">
-              <SelectValue placeholder="Male" />
+              <SelectValue placeholder="Select gender" />
             </SelectTrigger>
 
             <SelectContent>
