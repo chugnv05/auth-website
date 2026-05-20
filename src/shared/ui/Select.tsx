@@ -54,8 +54,10 @@ function SelectTrigger({
         variant === "default" &&
           "border-input bg-background text-foreground hover:border-crimson-red/40",
 
-        variant === "auth" &&
-          "border-crimson-red/20 bg-white text-crimson-red hover:border-crimson-red focus-visible:ring-crimson-red/20",
+        variant === "auth" && "border-crimson-red/20 bg-white",
+        "focus-visible: border-crimson-red",
+        "focus-visible: ring-crimson-red/20",
+        "shadow-sm",
 
         className,
       )}
@@ -89,7 +91,7 @@ function SelectContent({
         data-slot="select-content"
         data-align-trigger={position}
         className={cn(
-          "relative z-50 overflow-hidden rounded-2xl border border-border bg-popover text-popover-foreground shadow-xl",
+          "relative z-50 overflow-hidden rounded-2xl border border-border bg-popover text-crimson-red shadow-xl",
 
           "animate-in fade-in zoom-in-95",
           "data-[state=closed]:animate-out",

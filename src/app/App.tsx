@@ -1,6 +1,6 @@
 import { RouterProvider } from "react-router-dom";
 import { Toaster } from "sonner";
-import { AppInitializer } from "./config/AppInitializer";
+import { AppInitializer } from "./init/AppInitializer";
 import AppProviders from "./providers";
 import { appRouter } from "./router";
 

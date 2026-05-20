@@ -1,4 +1,5 @@
 import { PATHS } from "@/app/router/paths";
+import { GENDER } from "@/shared/constants/gender";
 import {
   Button,
   Input,
@@ -9,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/shared/ui";
+import { PasswordInput } from "@/shared/ui/form/password-input";
 
 import { Link } from "react-router-dom";
 
@@ -35,14 +37,15 @@ export default function RegisterForm() {
 
           <Select>
             <SelectTrigger variant="auth">
-              <SelectValue placeholder="Male" />
+              <SelectValue placeholder="Select gender" />
             </SelectTrigger>
 
             <SelectContent>
-              <SelectItem value="MALE">Male</SelectItem>
-              <SelectItem value="FEMALE">Female</SelectItem>
-              <SelectItem value="UNKNOWN">Unknown</SelectItem>
-              <SelectItem value="OTHER">Other</SelectItem>
+              {GENDER.map((gender) => (
+                <SelectItem key={gender.value} value={gender.value}>
+                  {gender.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
@@ -69,7 +72,7 @@ export default function RegisterForm() {
       <div className="space-y-2">
         <Label variant="basic">Password*</Label>
 
-        <Input variant="basic" type="password" placeholder="Enter your password" />
+        <PasswordInput autoComplete="new-password" placeholder="Enter your password" />
       </div>
 
       <Button variant="authBlock" size="lg" type="submit">

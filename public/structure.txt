@@ -13,13 +13,14 @@
 │   │   App.tsx
 │   │
 │   ├───config
-│   │       index.ts
+│   ├───init
+│   │       AppInitializer.ts
 │   │
 │   ├───providers
 │   │       index.tsx
 │   │
 │   ├───router
-│   │   │   auth.routes.tsx
+│   │   │   guest.routes.tsx
 │   │   │   index.tsx
 │   │   │   paths.ts
 │   │   │   protected.routes.tsx
@@ -29,57 +30,19 @@
 │   │           ProtectedRoute.tsx
 │   │           PublicOnlyRoute.tsx
 │   │
-│   ├───store
-│   │       index.ts
-│   │
 │   └───styles
 │           index.css
 │
 ├───entities
-│   ├───permisson
-│   │   ├───api
-│   │   │       index.ts
-│   │   │
-│   │   ├───model
-│   │   │       index.ts
-│   │   │
-│   │   ├───types
-│   │   │       index.ts
-│   │   │
-│   │   └───ui
-│   │           index.ts
-│   │
-│   ├───role
-│   │   ├───api
-│   │   │       index.ts
-│   │   │
-│   │   ├───model
-│   │   │       index.ts
-│   │   │
-│   │   ├───types
-│   │   │       index.ts
-│   │   │
-│   │   └───ui
-│   │           index.ts
-│   │
 │   └───user
-│       ├───api
-│       │       index.ts
-│       │
-│       ├───model
-│       │       index.ts
-│       │
-│       ├───types
-│       │       user-role.type.ts
-│       │       user.type.ts
-│       │
-│       └───ui
-│               index.ts
+│       └───types
+│               user-role.type.ts
+│               user.type.ts
 │
 ├───features
 │   ├───auth
-│   │   ├───forgot-password
-│   │   │       index.ts
+│   │   ├───api
+│   │   │       auth.api.ts
 │   │   │
 │   │   ├───login
 │   │   │   │   index.ts
@@ -93,48 +56,32 @@
 │   │   │   ├───schemas
 │   │   │   │       login.schema.ts
 │   │   │   │
-│   │   │   ├───services
-│   │   │   │       login.service.ts
-│   │   │   │
 │   │   │   └───types
-│   │   │           login-payload.type.ts
+│   │   │           login-request.type.ts
 │   │   │           login-response.type.ts
 │   │   │
-│   │   ├───logout
-│   │   │       index.ts
-│   │   │
-│   │   └───register
-│   │       │   index.ts
-│   │       │
-│   │       ├───components
-│   │       │       RegisterForm.tsx
-│   │       │
-│   │       ├───hooks
-│   │       ├───schemas
-│   │       ├───services
-│   │       └───types
+│   │   ├───register
+│   │   │   │   index.ts
+│   │   │   │
+│   │   │   ├───components
+│   │   │   │       RegisterForm.tsx
+│   │   │   │
+│   │   │   ├───hooks
+│   │   │   ├───schemas
+│   │   │   ├───services
+│   │   │   └───types
+│   │   └───store
+│   │           auth.store.ts
+│   │
+│   ├───hooks
+│   │       useAuthInit.ts
+│   │
 │   ├───permission
 │   ├───role
 │   ├───session
 │   │   │   index.ts
 │   │   │
-│   │   ├───constants
-│   │   │       auth-storage.constants.ts
-│   │   │
-│   │   ├───hooks
-│   │   ├───services
-│   │   │       token-storage.service.ts
-│   │   │
-│   │   ├───stores
-│   │   │       session.store.ts
-│   │   │
-│   │   ├───types
-│   │   │       auth-token.type.ts
-│   │   │
-│   │   └───utils
-│   │           has-permisson.ts
-│   │           has-role.ts
-│   │
+│   │   └───hooks
 │   └───user
 ├───layouts
 │   ├───auth-layout
@@ -151,7 +98,10 @@
 │
 ├───pages
 │   ├───dashboard
-│   │       index.tsx
+│   │       DashboardPage.tsx
+│   │
+│   ├───home
+│   │       HomePage.tsx
 │   │
 │   ├───login
 │   │       LoginPage.tsx
@@ -164,9 +114,11 @@
 │   └───users
 ├───shared
 │   ├───api
-│   │       axios.ts
+│   │       endpoints.ts
+│   │       httpClient.ts
 │   │       interceptors.ts
 │   │       query-client.ts
+│   │       types.ts
 │   │
 │   ├───assets
 │   │   │   hero.png
@@ -187,10 +139,6 @@
 │   │   │       text-crimson-red-the-sun.png
 │   │   │       text-peach-the-sun.png
 │   │   │
-│   │   ├───styles
-│   │   │       global.css
-│   │   │       index.css
-│   │   │
 │   │   └───svg
 │   │           crimson-red-logo.svg
 │   │           index.ts
@@ -205,38 +153,34 @@
 │   │       nav.data.ts
 │   │
 │   ├───constants
-│   ├───hooks
-│   │       usePagination.ts
+│   │       messages.ts
 │   │
 │   ├───lib
+│   │       error.ts
+│   │       toast.ts
 │   │       utils.ts
 │   │
-│   ├───types
-│   │       api-response.type.ts
-│   │       common.type.ts
-│   │
-│   ├───ui
-│   │       Avatar.tsx
-│   │       Badge.tsx
-│   │       Button.tsx
-│   │       Card.tsx
-│   │       Dialog.tsx
-│   │       Dropdown-menu.tsx
-│   │       Form.tsx
-│   │       Input.tsx
-│   │       label.tsx
-│   │       Select.tsx
-│   │       Separator.tsx
-│   │       Sheet.tsx
-│   │       Skeleton.tsx
-│   │       Sonner.tsx
-│   │       Table.tsx
-│   │       Tabs.tsx
-│   │       Textarea.tsx
-│   │       Tooltip.tsx
-│   │
-│   └───utils
-│           format-date.ts
+│   └───ui
+│           Avatar.tsx
+│           Badge.tsx
+│           Button.tsx
+│           Card.tsx
+│           ConfirmDialog.tsx
+│           Dialog.tsx
+│           Dropdown-menu.tsx
+│           Form.tsx
+│           index.ts
+│           Input.tsx
+│           label.tsx
+│           Select.tsx
+│           Separator.tsx
+│           Sheet.tsx
+│           Skeleton.tsx
+│           Sonner.tsx
+│           Table.tsx
+│           Tabs.tsx
+│           Textarea.tsx
+│           Tooltip.tsx
 │
 └───widgets
     ├───app-header

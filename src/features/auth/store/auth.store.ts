@@ -1,11 +1,5 @@
+import type { User } from "@/entities/user/types/user.type";
 import { create } from "zustand"; // bo nho chung toan app
-
-export type User = {
-  id: string;
-  email: string;
-  roles: string[];
-  permissions: string[];
-};
 
 type AuthState = {
   user: User | null;
@@ -39,6 +33,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       user: null,
       accessToken: null,
       isAuthenticated: false,
+      isInitializing: false,
     }),
 
   setInitializing: (value) =>

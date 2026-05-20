@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { authApi } from "../../api/auth.api";
-import { useAuthStore } from "../../store/auth.store";
+import { authApi } from "../api/auth.api";
+import { useAuthStore } from "../store/auth.store";
 
 // call api refresh
 // be doc refresh token cookie
@@ -16,10 +16,15 @@ export function useAuthInit() {
       try {
         const response = await authApi.refresh();
 
-        setAuth({
-          user: response.data.user,
-          accessToken: response.data.accessToken,
-        });
+        const user = response.data.data;
+        const accessToken = response.data.meta?.tokenInfo?.accessToken;
+
+        if (!user || !accessToken) {
+          logout();
+          return;
+        }
+
+        setAuth({ user, accessToken });
       } catch {
         logout();
       } finally {

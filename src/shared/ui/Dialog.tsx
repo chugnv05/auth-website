@@ -1,5 +1,5 @@
 import { cn } from "@/shared/lib/utils";
-import { Button } from "@/shared/ui/Button";
+import { Button } from "@/shared/ui/button";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import * as React from "react";

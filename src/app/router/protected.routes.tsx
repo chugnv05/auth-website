@@ -1,8 +1,9 @@
-import DashboardPage from "@/pages/dashboard";
+import DashboardPage from "@/pages/dashboard/DashboardPage";
+import { PATHS } from "./paths";
 
 export const protectedRoutes = [
   {
-    path: "dashboard",
+    path: PATHS.DASHBOARD,
     element: <DashboardPage />,
   },
 ];

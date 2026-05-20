@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 
 import { cn } from "@/shared/lib/utils";
 
-import { Button } from "@/shared/ui/Button";
+import { Button } from "@/shared/ui/button";
 function Sheet(props: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
 }

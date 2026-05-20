@@ -5,9 +5,9 @@ export {
   AvatarGroup,
   AvatarGroupCount,
   AvatarImage,
-} from "./Avatar";
-export { Badge, badgeVariants } from "./Badge";
-export { Button, buttonVariants } from "./Button";
+} from "./avatar";
+export { Badge, badgeVariants } from "./badge";
+export { Button, buttonVariants } from "./button";
 export {
   Card,
   CardAction,
@@ -16,7 +16,7 @@ export {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./Card";
+} from "./card";
 export {
   Dialog,
   DialogClose,
@@ -28,7 +28,7 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
-} from "./Dialog";
+} from "./dialog";
 export {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -45,7 +45,7 @@ export {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "./Dropdown-menu";
+} from "./dropdown-menu";
 export {
   Form,
   FormControl,
@@ -55,9 +55,9 @@ export {
   FormLabel,
   FormMessage,
   useFormField,
-} from "./Form";
-export { Input } from "./Input";
-export { Label } from "./Label";
+} from "./form";
+export { Input } from "./input";
+export { Label } from "./label";
 export {
   Select,
   SelectContent,
@@ -69,8 +69,8 @@ export {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "./Select";
-export { Separator, separatorVariants } from "./Separator";
+} from "./select";
+export { Separator, separatorVariants } from "./separator";
 export {
   Sheet,
   SheetClose,
@@ -82,9 +82,9 @@ export {
   SheetPortal,
   SheetTitle,
   SheetTrigger,
-} from "./Sheet";
-export { Skeleton, skeletonVariants } from "./Skeleton";
-export { Toaster } from "./Sonner";
+} from "./sheet";
+export { Skeleton, skeletonVariants } from "./skeleton";
+export { Toaster } from "./sonner";
 export {
   Table,
   TableBody,
@@ -94,7 +94,7 @@ export {
   TableHead,
   TableHeader,
   TableRow,
-} from "./Table";
-export { Tabs, TabsContent, TabsList, tabsListVariants, TabsTrigger } from "./Tabs";
-export { Textarea } from "./Textarea";
-export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./Tooltip";
+} from "./table";
+export { Tabs, TabsContent, TabsList, tabsListVariants, TabsTrigger } from "./tabs";
+export { Textarea } from "./textarea";
+export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./tooltip";

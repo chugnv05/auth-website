@@ -1,9 +1,4 @@
-export type LoginResponse = {
-  accessToken: string;
-  user: {
-    id: string;
-    email: string;
-    roles: string[];
-    permissions: string[];
-  };
-};
+import type { User } from "@/entities/user/types/user.type";
+import type { ApiResponse, TokenInfo } from "@/shared/api/types";
+
+export type LoginResponse = ApiResponse<User, TokenInfo>;
