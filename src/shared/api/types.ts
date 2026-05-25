@@ -1,5 +1,6 @@
 export type TokenInfo = {
   accessToken: string;
+  accessTokenTTL: number;
 };
 
 export type Pagination = {

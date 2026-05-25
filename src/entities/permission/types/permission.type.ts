@@ -1,7 +1,12 @@
-export type Permission = {
+import type { BaseEntity } from "@/entities/base.entity";
+
+export interface Permission {
   id: string;
   name: string;
   description: string;
-  createdAt: string;
-  updatedAt: string;
-};
+}
+
+export interface PermissionDetail extends BaseEntity {
+  name: string;
+  description: string;
+}

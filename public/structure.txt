@@ -70,6 +70,10 @@
 │   │   │           login-request.type.ts
 │   │   │           login-response.type.ts
 │   │   │
+│   │   ├───logout
+│   │   │   └───hooks
+│   │   │           useLogout.tsx
+│   │   │
 │   │   ├───register
 │   │   │   │   index.ts
 │   │   │   │
@@ -195,6 +199,7 @@
 │       │
 │       ├───dialog
 │       │       confirm-dialog.tsx
+│       │       confirm-logout.tsx
 │       │       index.ts
 │       │
 │       └───form

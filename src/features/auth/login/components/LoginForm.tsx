@@ -20,10 +20,10 @@ export default function LoginForm() {
     },
   });
 
-  const onSubmit = async (values: LoginSchemaType) => {
-    await loginMutation.mutateAsync(values);
-
-    navigate(PATHS.DASHBOARD);
+  const onSubmit = (values: LoginSchemaType) => {
+    loginMutation.mutateAsync(values, {
+      onSuccess: () => navigate(PATHS.DASHBOARD),
+    });
   };
 
   return (

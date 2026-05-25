@@ -1,5 +1,5 @@
 import { PATHS } from "@/app/router/paths";
-import { GENDER } from "@/shared/constants/gender";
+import { genderData } from "@/shared/config/gender.data";
 import {
   Button,
   Input,
@@ -41,7 +41,7 @@ export default function RegisterForm() {
             </SelectTrigger>
 
             <SelectContent>
-              {GENDER.map((gender) => (
+              {genderData.map((gender) => (
                 <SelectItem key={gender.value} value={gender.value}>
                   {gender.label}
                 </SelectItem>

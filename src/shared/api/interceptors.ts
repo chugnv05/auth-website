@@ -53,7 +53,7 @@ httpClient.interceptors.response.use(
           { withCredentials: true },
         );
 
-        const newAccessToken = res.data.accessToken as string;
+        const newAccessToken = res.data.data?.accessToken as string;
         useAuthStore.setState({
           accessToken: newAccessToken,
         });
