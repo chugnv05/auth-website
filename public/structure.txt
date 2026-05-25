@@ -12,7 +12,6 @@
 ├───app
 │   │   App.tsx
 │   │
-│   ├───config
 │   ├───init
 │   │       AppInitializer.ts
 │   │
@@ -44,6 +43,9 @@
 │   │   ├───api
 │   │   │       auth.api.ts
 │   │   │
+│   │   ├───hooks
+│   │   │       useAuthInit.ts
+│   │   │
 │   │   ├───login
 │   │   │   │   index.ts
 │   │   │   │
@@ -73,9 +75,6 @@
 │   │   └───store
 │   │           auth.store.ts
 │   │
-│   ├───hooks
-│   │       useAuthInit.ts
-│   │
 │   ├───permission
 │   ├───role
 │   ├───session
@@ -87,13 +86,15 @@
 │   ├───auth-layout
 │   │       AuthLayout.tsx
 │   │
-│   ├───main-layout
-│   │       Footer.tsx
-│   │       Header.tsx
+│   ├───protected-layout
+│   │       DashboardLayout.tsx
 │   │       index.tsx
-│   │       MobileMenu.tsx
+│   │       ProtectedFooter.tsx
+│   │       ProtectedHeader.tsx
 │   │
 │   └───public-layout
+│           Footer.tsx
+│           Header.tsx
 │           index.tsx
 │
 ├───pages
@@ -151,8 +152,10 @@
 │   │       env.ts
 │   │       footer.data.ts
 │   │       nav.data.ts
+│   │       sidebar.data.ts
 │   │
 │   ├───constants
+│   │       gender.ts
 │   │       messages.ts
 │   │
 │   ├───lib
@@ -161,30 +164,40 @@
 │   │       utils.ts
 │   │
 │   └───ui
-│           Avatar.tsx
-│           Badge.tsx
-│           Button.tsx
-│           Card.tsx
-│           ConfirmDialog.tsx
-│           Dialog.tsx
-│           Dropdown-menu.tsx
-│           Form.tsx
-│           index.ts
-│           Input.tsx
-│           label.tsx
-│           Select.tsx
-│           Separator.tsx
-│           Sheet.tsx
-│           Skeleton.tsx
-│           Sonner.tsx
-│           Table.tsx
-│           Tabs.tsx
-│           Textarea.tsx
-│           Tooltip.tsx
+│       │   avatar.tsx
+│       │   badge.tsx
+│       │   button.tsx
+│       │   card.tsx
+│       │   Dialog.tsx
+│       │   dropdown-menu.tsx
+│       │   Form.tsx
+│       │   index.ts
+│       │   input.tsx
+│       │   label.tsx
+│       │   Select.tsx
+│       │   separator.tsx
+│       │   Sheet.tsx
+│       │   skeleton.tsx
+│       │   sonner.tsx
+│       │   Table.tsx
+│       │   tabs.tsx
+│       │   textarea.tsx
+│       │   tooltip.tsx
+│       │
+│       ├───dialog
+│       │       confirm-dialog.tsx
+│       │       index.ts
+│       │
+│       └───form
+│               index.ts
+│               password-input.tsx
 │
 └───widgets
+    ├───app-dropdown
     ├───app-header
     ├───app-sidebar
-    ├───auth-form-card
-    ├───navigation
-    └───user-menu
+    │       index.ts
+    │       mobile-sidebar.tsx
+    │       protected-sidebar.tsx
+    │
+    └───navigation

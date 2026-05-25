@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className="h-(--header-height) bg-crimson-red rounded-b-md sticky top-0 z-50 shadow-[0_6px_30px_rgba(0,0,0,0.2)]">
+    <header className="h-(--header-height) bg-crimson-red sticky top-0 z-50 shadow-[0_6px_30px_rgba(0,0,0,0.2)]">
       <div className="page-container flex h-full items-center justify-between">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center">
           <Link to="/" className="text-lg font-semibold">
             <img
               src={svg.textLogoPeach}

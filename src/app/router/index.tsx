@@ -1,6 +1,5 @@
 import AuthLayout from "@/layouts/auth-layout/AuthLayout";
 import ProtectedLayout from "@/layouts/protected-layout";
-import PublicLayout from "@/layouts/public-layout";
 import { createBrowserRouter } from "react-router-dom";
 import ProtectedRoute from "./guards/ProtectedRoute";
 import PublicOnlyRoute from "./guards/PublicOnlyRoute";
@@ -12,7 +11,8 @@ export const appRouter = createBrowserRouter([
   // Public
   {
     path: "/",
-    element: <PublicLayout />,
+    // element: <PublicLayout />,
+    element: <ProtectedLayout />,
     children: publicRoutes,
   },
 

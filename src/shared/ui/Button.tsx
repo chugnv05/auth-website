@@ -25,6 +25,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
 
         // Custom
+        panel: "bg-crimson-red text-peach hover:bg-crimson",
+
         auth: "bg-peach text-crimson-red gently-emerge",
 
         authOutline:

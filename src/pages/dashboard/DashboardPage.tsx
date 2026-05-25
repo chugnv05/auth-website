@@ -1,3 +1,5 @@
+import DashboardLayout from "@/layouts/protected-layout/DashboardLayout";
+
 export default function DashboardPage() {
-  return <div>Hello, you welcome</div>;
+  return <DashboardLayout />;
 }

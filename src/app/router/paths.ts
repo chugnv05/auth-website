@@ -8,6 +8,9 @@ export const PATHS = {
   FORGOT_PASSWORD: "/forgot-password",
   NEWS: "/news",
   BLOG: "/blog",
+  USER: "/users",
+  ROLE: "/roles",
+  PERMISSION: "/perrmissions",
 } as const;
 
 export const LINKS = {
