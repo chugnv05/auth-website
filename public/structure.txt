@@ -33,6 +33,14 @@
 │           index.css
 │
 ├───entities
+│   ├───permission
+│   │   └───types
+│   │           permission.type.ts
+│   │
+│   ├───role
+│   │   └───types
+│   │           role.type.ts
+│   │
 │   └───user
 │       └───types
 │               user-role.type.ts
@@ -143,6 +151,7 @@
 │   │   └───svg
 │   │           crimson-red-logo.svg
 │   │           index.ts
+│   │           peach-logo.svg
 │   │           team-work-a.svg
 │   │           team-work-b.svg
 │   │           text-crimson-red-the-sun.svg
