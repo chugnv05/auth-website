@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/shared/ui";
-import { PasswordInput } from "@/shared/ui/form/password-input";
+import { PasswordInput } from "@/shared/ui/custom";
 
 import { Link } from "react-router-dom";
 

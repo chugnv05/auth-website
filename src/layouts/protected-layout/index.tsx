@@ -1,4 +1,4 @@
-import ProtectedSidebar from "@/widgets/app-sidebar/protected-sidebar";
+import { ProtectedSidebar } from "@/widgets/app-sidebar";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import ProtectedFooter from "./ProtectedFooter";

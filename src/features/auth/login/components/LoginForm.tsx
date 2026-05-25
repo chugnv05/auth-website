@@ -1,6 +1,6 @@
 import { PATHS } from "@/app/router/paths";
 import { Button, Input, Label } from "@/shared/ui";
-import { PasswordInput } from "@/shared/ui/form/password-input";
+import { PasswordInput } from "@/shared/ui/custom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";

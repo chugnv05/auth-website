@@ -1,40 +1,41 @@
-import { DialogContent, DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
 import { Button } from "../button";
-import { Dialog, DialogFooter, DialogHeader } from "../dialog";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "../dialog";
 
 type ConfirmDialogProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  title?: string;
+  title: string;
   description?: string;
   confirmLabel?: string;
   cancelLabel?: string;
-  onConfirm: () => void;
+  variant?: "default" | "destructive";
   loading?: boolean;
+  onConfirm: () => void;
 };
 
-export function ConfirmLogout({
+export default function ConfirmDialog({
   open,
   onOpenChange,
   title = "Bạn có chắc chắn không?",
   description = "Hành động này không thể hoàn tác.",
-  confirmLabel = "Xác nhận",
-  cancelLabel = "Huỷ",
-  onConfirm,
+  confirmLabel = "Confirm",
+  cancelLabel = "Cancel",
+  variant = "default",
   loading = false,
+  onConfirm,
 }: ConfirmDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-sm">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
-          <DialogDescription>{description}</DialogDescription>
+          {description && <p className="text-sm text-muted-foreground">{description}</p>}
         </DialogHeader>
         <DialogFooter className="gap-2">
           <Button variant="outline" onClick={() => onOpenChange(false)} disabled={loading}>
             {cancelLabel}
           </Button>
-          <Button variant="destructive" onClick={onConfirm} disabled={loading}>
+          <Button variant={variant} onClick={onConfirm} disabled={loading}>
             {confirmLabel}
           </Button>
         </DialogFooter>
