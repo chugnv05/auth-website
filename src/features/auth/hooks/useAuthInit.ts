@@ -10,16 +10,28 @@ export function useAuthInit() {
   const setAuth = useAuthStore((s) => s.setAuth);
   const logout = useAuthStore((s) => s.logout);
   const setInitializing = useAuthStore((s) => s.setInitializing);
+  const isInitialized = useAuthStore((s) => s.isInitialized);
+  const setInitialized = useAuthStore((s) => s.setInitialized);
 
   useEffect(() => {
+    if (isInitialized) return; // chan StrictMode chay lan 2
+    setInitialized(true);
     const initialize = async () => {
       try {
-        const response = await authApi.refresh();
+        const refreshResponse = await authApi.refresh();
+        const accessToken = refreshResponse.data.data?.accessToken;
 
-        const user = response.data.data;
-        const accessToken = response.data.meta?.tokenInfo?.accessToken;
+        if (!accessToken) {
+          logout();
+          return;
+        }
 
-        if (!user || !accessToken) {
+        useAuthStore.setState({ accessToken });
+
+        const meResponse = await authApi.getMe();
+        const user = meResponse.data.data;
+
+        if (!user) {
           logout();
           return;
         }

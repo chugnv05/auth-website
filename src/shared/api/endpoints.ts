@@ -6,5 +6,7 @@ export const ENDPOINTS = {
   },
   ROLE: "",
   PERMISSION: "",
-  USER: "",
+  USERS: {
+    me: "/user/me",
+  },
 } as const;

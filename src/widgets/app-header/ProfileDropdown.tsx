@@ -48,7 +48,7 @@ export default function ProfileDropdown() {
         <DropdownMenuTrigger asChild>
           <button className="flex items-center gap-2 rounded-md px-2 py-1.5 ext-peach hover:bg-crimson transition-colors duration-200 outline-none">
             <div className="hidden sm:flex flex-col items-end leading-tight">
-              <span className="text-sm font-bold whitespace-nowrap">{username}</span>
+              <span className="text-sm font-semibold text-peach whitespace-nowrap">{username}</span>
               {role && (
                 <span className="text-sm font-normal text-peach/70 whitespace-nowrap">{role}</span>
               )}

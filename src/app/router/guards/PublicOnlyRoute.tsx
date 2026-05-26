@@ -11,7 +11,7 @@ export default function PublicOnlyRoute() {
   }
 
   if (accessToken) {
-    return <Navigate to={PATHS.HOME} replace />;
+    return <Navigate to={PATHS.DASHBOARD} replace />;
   }
 
   return <Outlet />;

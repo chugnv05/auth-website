@@ -7,19 +7,20 @@ type AuthState = {
 
   isAuthenticated: boolean;
   isInitializing: boolean;
+  isInitialized: boolean;
 
   setAuth: (data: { user: User; accessToken: string }) => void;
   logout: () => void;
-
   setInitializing: (value: boolean) => void;
+  setInitialized: (value: boolean) => void;
 };
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   accessToken: null,
-
   isAuthenticated: false,
   isInitializing: true,
+  isInitialized: false,
 
   setAuth: ({ user, accessToken }) =>
     set({
@@ -40,4 +41,6 @@ export const useAuthStore = create<AuthState>((set) => ({
     set({
       isInitializing: value,
     }),
+
+  setInitialized: (value) => set({ isInitialized: value }),
 }));

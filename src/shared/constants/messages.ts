@@ -25,6 +25,7 @@ export const MESSAGES = {
       format: "Phone number must be 10 digits, starting with 0. Example: 0974 xxx xxx",
     },
     email: {
+      required: "Email required",
       blank: "Email must not be blank",
       format: "Must be a valid email with domain",
       existed: "Email already existed",

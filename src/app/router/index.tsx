@@ -6,13 +6,14 @@ import PublicOnlyRoute from "./guards/PublicOnlyRoute";
 import { guestRoutes } from "./guest.routes";
 import { protectedRoutes } from "./protected.routes";
 import { publicRoutes } from "./public.routes";
+import PublicLayout from "@/layouts/public-layout";
 
 export const appRouter = createBrowserRouter([
   // Public
   {
     path: "/",
-    // element: <PublicLayout />,
-    element: <ProtectedLayout />,
+    element: <PublicLayout />,
+    // element: <ProtectedLayout />,
     children: publicRoutes,
   },
 

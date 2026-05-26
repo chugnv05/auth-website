@@ -1,5 +1,15 @@
 import { PATHS } from "@/app/router/paths";
-import { Button, Input, Label } from "@/shared/ui";
+import {
+  Button,
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  Input,
+  Label,
+} from "@/shared/ui";
 import { PasswordInput } from "@/shared/ui/custom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -27,51 +37,75 @@ export default function LoginForm() {
   };
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 text-crimson-red onSubm">
-      <div className="space-y-2">
-        <Label variant="basic">Email*</Label>
-
-        <Input
-          variant="basic"
-          id="email"
-          type="email"
-          placeholder="Enter your email"
-          {...form.register("email")} //theo doi value
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 text-crimson-red onSubm">
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel variant="basic">Email*</FormLabel>
+              <FormControl>
+                <Input variant="basic" type="text" placeholder="Enter your email" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-      </div>
 
-      <div className="space-y-2">
-        <Label variant="basic">Password*</Label>
-
-        <PasswordInput
-          id="password"
-          autoComplete="current-password"
-          placeholder="Enter your password"
-          {...form.register("password")}
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel variant="basic">Password*</FormLabel>
+              <FormControl>
+                <PasswordInput
+                  autoComplete="current-password"
+                  placeholder="Enter your password"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-      </div>
 
-      <div className="flex items-center justify-between">
-        <Label variant="basic">
-          <Input variant="checkBox" type="checkbox" {...form.register("rememberMe")} />
-          <span> Remember me</span>
-        </Label>
+        <div className="flex items-center justify-between">
+          <FormField
+            control={form.control}
+            name="rememberMe"
+            render={({ field }) => (
+              <FormItem className="flex items-center gap-2 space-y-0">
+                <FormControl>
+                  <Input
+                    variant="checkBox"
+                    type="checkbox"
+                    checked={field.value}
+                    onChange={field.onChange}
+                  />
+                </FormControl>
+                <Label variant="basic">Remember me</Label>
+              </FormItem>
+            )}
+          />
 
-        <Link to={PATHS.FORGOT_PASSWORD} className="text-sm hover:underline">
-          Forgot password
-        </Link>
-      </div>
+          <Link to={PATHS.FORGOT_PASSWORD} className="text-sm hover:underline">
+            Forgot password
+          </Link>
+        </div>
 
-      <Button variant="authBlock" size="lg" type="submit" disabled={loginMutation.isPending}>
-        {loginMutation.isPending ? "Signing in..." : "Sign in"}
-      </Button>
+        <Button variant="authBlock" size="lg" type="submit" disabled={loginMutation.isPending}>
+          {loginMutation.isPending ? "Signing in..." : "Sign in"}
+        </Button>
 
-      <p className="text-sm">
-        Don't have an account?{" "}
-        <Link to={PATHS.REGISTER} className="font-semibold hover:underline">
-          Register now
-        </Link>
-      </p>
-    </form>
+        <p className="text-sm">
+          Don't have an account?{" "}
+          <Link to={PATHS.REGISTER} className="font-semibold hover:underline">
+            Register now
+          </Link>
+        </p>
+      </form>
+    </Form>
   );
 }

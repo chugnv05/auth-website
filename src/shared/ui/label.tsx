@@ -53,4 +53,4 @@ function Label({ className, variant, size, required = false, children, ...props 
   );
 }
 
-export { Label };
+export { Label, labelVariants };
