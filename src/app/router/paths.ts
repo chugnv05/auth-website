@@ -11,6 +11,7 @@ export const PATHS = {
   USER: "/users",
   ROLE: "/roles",
   PERMISSION: "/perrmissions",
+  ME: "/me",
 } as const;
 
 export const LINKS = {
