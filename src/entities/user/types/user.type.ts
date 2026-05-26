@@ -14,3 +14,13 @@ export interface User extends BaseEntity {
   status: Status;
   roles: Role[];
 }
+export interface UserBaseResponse {
+  id: string;
+  fullName: string;
+  gender: Gender;
+  dob: string;
+  email: string;
+  phoneNumber: string;
+  status: Status;
+  profilePicture: string | null;
+}

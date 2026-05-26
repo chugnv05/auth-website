@@ -17,9 +17,15 @@ export const MESSAGES = {
     errorGeneric: "Something went wrong, please try again",
   },
   user: {
-    firstName: "Your first name must be at least 2 characters",
-    lastName: "Your last name must be at least 2 characters",
-    dob: "Your age must be at least 16",
+    firstName: { invalid: "First name must be at least 2 characters" },
+    lastName: { invalid: "Last name must be at least 2 characters" },
+    gender: {
+      invalid: "Gender is required",
+    },
+    dob: {
+      required: "Date of birth is required",
+      invalid: "You must be at least 16 years old",
+    },
     phoneNumber: {
       existed: "Phone number already existed",
       format: "Phone number must be 10 digits, starting with 0. Example: 0974 xxx xxx",
