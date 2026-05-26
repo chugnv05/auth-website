@@ -19,6 +19,7 @@ import { PasswordInput } from "@/shared/ui/custom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import ContinueWithSocial from "../../components/ContinueWithSocial";
 import useRegister from "../hooks/useRegister";
 import { registerSchema, type RegisterSchemaType } from "../schemas/register.schema";
 
@@ -187,6 +188,8 @@ export default function RegisterForm() {
         <Button variant="authBlock" size="lg" type="submit" disabled={registerMutation.isPending}>
           {registerMutation.isPending ? "Creating..." : "Create Account"}
         </Button>
+
+        <ContinueWithSocial />
 
         <p className="text-sm">
           Already have an account?{" "}

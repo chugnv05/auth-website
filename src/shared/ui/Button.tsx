@@ -41,6 +41,8 @@ const buttonVariants = cva(
 
         learnMore:
           "border border-crimson-red px-6 py-3 text-crimson-red rounded-lg transition hover:bg-crimson-red hover:text-peach",
+
+        social: "bg-crimson-red text-peach hover:bg-crimson  imson gently-emerge",
       },
       size: {
         default: "h-9 px-4 py-2",

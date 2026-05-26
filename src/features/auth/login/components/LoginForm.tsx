@@ -14,6 +14,7 @@ import { PasswordInput } from "@/shared/ui/custom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import ContinueWithSocial from "../../components/ContinueWithSocial";
 import useLogin from "../hooks/useLogin";
 import { loginSchema, type LoginSchemaType } from "../schemas/login.schema";
 
@@ -39,6 +40,7 @@ export default function LoginForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 text-crimson-red onSubm">
+        {/* Email */}
         <FormField
           control={form.control}
           name="email"
@@ -53,6 +55,7 @@ export default function LoginForm() {
           )}
         />
 
+        {/* Password */}
         <FormField
           control={form.control}
           name="password"
@@ -71,6 +74,7 @@ export default function LoginForm() {
           )}
         />
 
+        {/* Remember */}
         <div className="flex items-center justify-between">
           <FormField
             control={form.control}
@@ -90,6 +94,7 @@ export default function LoginForm() {
             )}
           />
 
+          {/* Forgot password */}
           <Link to={PATHS.FORGOT_PASSWORD} className="text-sm hover:underline">
             Forgot password
           </Link>
@@ -98,6 +103,8 @@ export default function LoginForm() {
         <Button variant="authBlock" size="lg" type="submit" disabled={loginMutation.isPending}>
           {loginMutation.isPending ? "Signing in..." : "Sign in"}
         </Button>
+
+        <ContinueWithSocial />
 
         <p className="text-sm">
           Don't have an account?{" "}
