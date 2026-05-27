@@ -1,5 +1,5 @@
 import { PATHS } from "@/app/router/paths";
-import { Bolt, FileUser, Info } from "lucide-react";
+import { Bolt, FileUser, Info, RectangleEllipsis } from "lucide-react";
 import type { IconType } from "react-icons/lib";
 
 export type profileDropdownItem = {
@@ -18,6 +18,11 @@ export const profileDropdownData: profileDropdownItem[] = [
     icon: Info,
     label: "About us",
     to: PATHS.ABOUT_US,
+  },
+  {
+    icon: RectangleEllipsis,
+    label: "Change password",
+    to: PATHS.CHANGE_PASSWORD,
   },
   {
     icon: Bolt,
