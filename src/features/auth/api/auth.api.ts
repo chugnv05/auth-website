@@ -1,4 +1,5 @@
-import type { User, UserBaseResponse } from "@/entities/user/types/user.type";
+import type { User, UserBaseResponse } from "@/entities/user/types";
+
 import { ENDPOINTS } from "@/shared/api/endpoints";
 import { httpClient } from "@/shared/api/httpClient";
 import type { ApiResponse, TokenInfo } from "@/shared/api/types";
