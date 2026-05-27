@@ -1,4 +1,5 @@
 import { useAuthStore } from "@/features/auth/store/auth.store";
+import { LoadingOverlay } from "@/shared/ui/overlay";
 import { Navigate, Outlet } from "react-router-dom";
 import { PATHS } from "../paths";
 
@@ -9,7 +10,7 @@ export default function ProtectedRoute() {
 
   if (isInitializing) {
     // chờ auth restore xong
-    return <div>Loading...</div>;
+    return <LoadingOverlay />;
   }
 
   if (!accessToken) {
