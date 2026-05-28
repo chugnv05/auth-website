@@ -1,4 +1,5 @@
-import type { Gender, Status } from "@/shared/constants/gender";
+import type { Gender } from "@/shared/constants/gender";
+import type { Status } from "@/shared/constants/status";
 
 export interface UserBaseResponse {
   id: string;

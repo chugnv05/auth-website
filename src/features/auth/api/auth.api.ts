@@ -1,4 +1,4 @@
-import type { User, UserBaseResponse } from "@/entities/user/types";
+import type { UserBaseResponse } from "@/entities/user/types";
 
 import { ENDPOINTS } from "@/shared/api/endpoints";
 import { httpClient } from "@/shared/api/httpClient";
@@ -14,5 +14,4 @@ export const authApi = {
   logout: () => httpClient.post<ApiResponse>(ENDPOINTS.AUTH.logout),
   refresh: () =>
     httpClient.post<ApiResponse<RefreshTokenResponse, TokenInfo>>(ENDPOINTS.AUTH.refresh),
-  getMe: () => httpClient.get<ApiResponse<User>>(ENDPOINTS.USERS.me),
 };

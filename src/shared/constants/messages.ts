@@ -8,6 +8,10 @@ export const MESSAGES = {
     registerError: "Account creation failed",
   },
   common: {
+    findAllSuccess: "Find all success",
+    getInfo: "Info retrieved successfully",
+    addSuccess: "Add to success",
+    addError: "Add failure",
     saveSuccess: "Saved successfully",
     saveError: "Save failed, please try again",
     updateSuccess: "Updated successfully",
@@ -15,6 +19,10 @@ export const MESSAGES = {
     deleteSuccess: "Deleted successfully",
     deleteError: "Delete failed, please try again",
     errorGeneric: "Something went wrong, please try again",
+    changePassword: "Password changed successfully",
+    forgotPassword: "OTP send success",
+    resetPassword: "Password reset successful",
+    tokenRefreshSuccessful: "Token refresh successful",
   },
   user: {
     firstName: { invalid: "First name must be at least 2 characters" },

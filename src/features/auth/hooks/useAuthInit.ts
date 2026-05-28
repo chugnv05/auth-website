@@ -1,3 +1,4 @@
+import { userApi } from "@/features/user/api/user.api";
 import { useEffect } from "react";
 import { authApi } from "../api/auth.api";
 import { useAuthStore } from "../store/auth.store";
@@ -28,7 +29,7 @@ export function useAuthInit() {
 
         useAuthStore.setState({ accessToken });
 
-        const meResponse = await authApi.getMe();
+        const meResponse = await userApi.getMe();
         const user = meResponse.data.data;
 
         if (!user) {

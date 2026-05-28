@@ -33,6 +33,8 @@
 │           index.css
 │
 ├───entities
+│   │   base.entity.ts
+│   │
 │   ├───permission
 │   │   └───types
 │   │           permission.type.ts
@@ -43,13 +45,18 @@
 │   │
 │   └───user
 │       └───types
-│               user-role.type.ts
+│               index.ts
+│               user-request.type.ts
+│               user-response.type.ts
 │               user.type.ts
 │
 ├───features
 │   ├───auth
 │   │   ├───api
 │   │   │       auth.api.ts
+│   │   │
+│   │   ├───components
+│   │   │       ContinueWithSocial.tsx
 │   │   │
 │   │   ├───hooks
 │   │   │       useAuthInit.ts
@@ -71,6 +78,8 @@
 │   │   │           login-response.type.ts
 │   │   │
 │   │   ├───logout
+│   │   │   │   index.ts
+│   │   │   │
 │   │   │   └───hooks
 │   │   │           useLogout.tsx
 │   │   │
@@ -81,9 +90,14 @@
 │   │   │   │       RegisterForm.tsx
 │   │   │   │
 │   │   │   ├───hooks
+│   │   │   │       useRegister.ts
+│   │   │   │
 │   │   │   ├───schemas
-│   │   │   ├───services
+│   │   │   │       register.schema.ts
+│   │   │   │
 │   │   │   └───types
+│   │   │           register-request.type.ts
+│   │   │
 │   │   └───store
 │   │           auth.store.ts
 │   │
@@ -94,6 +108,21 @@
 │   │   │
 │   │   └───hooks
 │   └───user
+│       │   index.ts
+│       │
+│       ├───api
+│       │       user.api.ts
+│       │
+│       ├───components
+│       │       MeCard.tsx
+│       │       MeHeader.tsx
+│       │
+│       ├───hooks
+│       │       useUpdateMe.ts
+│       │
+│       └───schemas
+│               update.schema.ts
+│
 ├───layouts
 │   ├───auth-layout
 │   │       AuthLayout.tsx
@@ -125,6 +154,8 @@
 │   │
 │   ├───roles
 │   └───users
+│           MePage.tsx
+│
 ├───shared
 │   ├───api
 │   │       endpoints.ts
@@ -164,15 +195,21 @@
 │   ├───config
 │   │       env.ts
 │   │       footer.data.ts
+│   │       gender.data.ts
 │   │       nav.data.ts
+│   │       profile-dropdown.data.ts
 │   │       sidebar.data.ts
+│   │       status.data.ts
 │   │
 │   ├───constants
 │   │       gender.ts
 │   │       messages.ts
+│   │       role.ts
+│   │       status.ts
 │   │
 │   ├───lib
 │   │       error.ts
+│   │       format.ts
 │   │       toast.ts
 │   │       utils.ts
 │   │
@@ -181,37 +218,39 @@
 │       │   badge.tsx
 │       │   button.tsx
 │       │   card.tsx
-│       │   Dialog.tsx
+│       │   dialog.tsx
 │       │   dropdown-menu.tsx
-│       │   Form.tsx
+│       │   form.tsx
 │       │   index.ts
 │       │   input.tsx
 │       │   label.tsx
-│       │   Select.tsx
+│       │   select.tsx
 │       │   separator.tsx
-│       │   Sheet.tsx
+│       │   sheet.tsx
 │       │   skeleton.tsx
 │       │   sonner.tsx
-│       │   Table.tsx
+│       │   table.tsx
 │       │   tabs.tsx
 │       │   textarea.tsx
 │       │   tooltip.tsx
 │       │
-│       ├───dialog
+│       ├───custom
 │       │       confirm-dialog.tsx
-│       │       confirm-logout.tsx
 │       │       index.ts
+│       │       password-input.tsx
 │       │
-│       └───form
+│       └───overlay
 │               index.ts
-│               password-input.tsx
+│               LoadingOverlay.tsx
 │
 └───widgets
-    ├───app-dropdown
     ├───app-header
+    │       index.ts
+    │       ProfileDropdown.tsx
+    │
     ├───app-sidebar
     │       index.ts
-    │       mobile-sidebar.tsx
-    │       protected-sidebar.tsx
+    │       MobileSidebar.tsx
+    │       ProtectedSidebar.tsx
     │
     └───navigation

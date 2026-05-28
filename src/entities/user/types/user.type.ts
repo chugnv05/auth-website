@@ -1,6 +1,7 @@
 import type { BaseEntity } from "@/entities/base.entity";
 import type { Role } from "@/entities/role/types/role.type";
-import type { Gender, Status } from "@/shared/constants/gender";
+import type { Gender } from "@/shared/constants/gender";
+import type { Status } from "@/shared/constants/status";
 
 export interface User extends BaseEntity {
   firstName: string;
