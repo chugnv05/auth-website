@@ -49,7 +49,8 @@ export function MeHeader({ user }: MeHeaderProps) {
                 // View ảnh
               }}
             >
-              <Eye className="size-4" />s View
+              <Eye className="size-4" />
+              View
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
