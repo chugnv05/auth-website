@@ -59,7 +59,7 @@ export default function ProfileDropdown() {
             </Avatar>
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
+        <DropdownMenuContent align="end" className="min-w-auto">
           <DropdownMenuLabel>Hi {username}</DropdownMenuLabel>
 
           <DropdownMenuSeparator />

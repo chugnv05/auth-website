@@ -10,7 +10,7 @@ function Avatar({
   size = "default",
   ...props
 }: React.ComponentProps<typeof AvatarPrimitive.Root> & {
-  size?: "default" | "sm" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  size?: "default" | "sm" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5XL";
 }) {
   return (
     <AvatarPrimitive.Root
@@ -38,6 +38,7 @@ function Avatar({
           "data-[size=2xl]:size-24",
           "data-[size=3xl]:size-28",
           "data-[size=4xl]:size-32",
+          "data-[size=5xl]:size-36",
         ],
         className,
       )}

@@ -43,7 +43,7 @@ export default function MePage() {
     <div className="page-container max-w-xl md:max-w-xl lg:max-w-2xl mx-auto py-10">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-8">
-          <MeHeader user={user} isEditing={isEditing} />
+          <MeHeader user={user} />
           <MeCard form={form} user={user} isEditing={isEditing} />
           <div className="flex justify-between items-center">
             <Button
