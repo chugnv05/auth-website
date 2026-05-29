@@ -12,16 +12,16 @@ export default function MePage() {
   const user = useAuthStore((s) => s.user);
   const updateMe = useUpdateMe();
   const [isEditing, setIsEditing] = useState(false);
-  const [avatarFile, setAvatarFile] = useState<File | undefined>(undefined);
 
   const form = useForm<UpdateMeSchemaType>({
     resolver: zodResolver(updateMeSchema),
     values: {
-      firstName: user?.firstName ?? "undefined",
-      lastName: user?.lastName ?? "undefined",
+      firstName: user?.firstName ?? "",
+      lastName: user?.lastName ?? "",
       gender: user?.gender ?? "UNKNOWN",
       dob: user?.dob ?? "",
       phoneNumber: user?.phoneNumber ?? "",
+      email: user?.email ?? "",
     },
   });
 
@@ -29,26 +29,21 @@ export default function MePage() {
 
   const onCancel = () => {
     form.reset();
-    setAvatarFile(undefined); // reset file khi cancel
     setIsEditing(false);
   };
 
   const onSubmit = (values: UpdateMeSchemaType) => {
-    updateMe.mutate(
-      { data: values, file: avatarFile },
-      {
-        onSuccess: () => {
-          setIsEditing(false);
-          setAvatarFile(undefined);
-        },
+    updateMe.mutate(values, {
+      onSuccess: () => {
+        setIsEditing(false);
       },
-    );
+    });
   };
   return (
     <div className="page-container max-w-xl md:max-w-xl lg:max-w-2xl mx-auto py-10">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-8">
-          <MeHeader user={user} isEditing={isEditing} onFileChange={setAvatarFile} />
+          <MeHeader user={user} isEditing={isEditing} />
           <MeCard form={form} user={user} isEditing={isEditing} />
           <div className="flex justify-between items-center">
             <Button

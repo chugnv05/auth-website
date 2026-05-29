@@ -1,6 +1,5 @@
 import type { User } from "@/entities/user/types";
 import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui";
-import { Camera } from "lucide-react";
 import React, { useRef } from "react";
 
 interface MeHeaderProps {
@@ -30,7 +29,7 @@ export function MeHeader({ user, isEditing, onFileChange }: MeHeaderProps) {
         <AvatarImage src={user.profilePicture ?? undefined} alt={user.fullName} />
         <AvatarFallback>{initials}</AvatarFallback>
       </Avatar>
-      {isEditing && (
+      {/* {isEditing && (
         <>
           <button
             type="button"
@@ -47,7 +46,7 @@ export function MeHeader({ user, isEditing, onFileChange }: MeHeaderProps) {
             onChange={handleFileChange}
           />
         </>
-      )}
+      )} */}
 
       <span className="text-xs font-semibold uppercase tracking-widest text-crimson-red/60">
         {role}

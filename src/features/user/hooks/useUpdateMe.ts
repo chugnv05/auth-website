@@ -13,12 +13,10 @@ export default function useUpdateMe() {
   const user = useAuthStore((s) => s.user);
 
   return useMutation({
-    mutationFn: ({ data, file }: { data: UpdateMeSchemaType; file?: File }) =>
-      userApi.updateMe(data, file),
+    mutationFn: (data: UpdateMeSchemaType) => userApi.updateMe(data),
     onSuccess: (res) => {
       const updated = res.data.data;
       if (updated && accessToken) {
-        // Gop thong tin da cap nhat vao user hien tai trong store
         setAuth({ user: { ...user, ...updated } as User, accessToken });
       }
       notify.success(res.data.message ?? MESSAGES.common.updateSuccess);

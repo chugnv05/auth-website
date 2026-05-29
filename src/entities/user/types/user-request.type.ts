@@ -6,5 +6,5 @@ export interface UserUpdateRequest {
   gender?: Gender;
   dob?: string;
   phoneNumber?: string;
-  profilePicture?: string;
+  email?: string;
 }

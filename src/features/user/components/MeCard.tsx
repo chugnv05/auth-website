@@ -3,7 +3,7 @@ import { genderData } from "@/shared/config/gender.data";
 import { STATUS_CONFIG } from "@/shared/config/status.data";
 import { RoleType } from "@/shared/constants/role";
 import type { Status } from "@/shared/constants/status";
-import { formatDate } from "@/shared/lib/format";
+import { formatDateTime } from "@/shared/lib/format";
 import {
   FormControl,
   FormField,
@@ -136,9 +136,8 @@ export function MeCard({ form, user, isEditing }: MeCardProps) {
               <FormControl>
                 <Input
                   variant="basic"
-                  type="text"
+                  type="email"
                   disabled={!isEditing || !canEditEmail}
-                  defaultValue={user.email}
                   {...field}
                 />
               </FormControl>
@@ -150,8 +149,8 @@ export function MeCard({ form, user, isEditing }: MeCardProps) {
 
       <div className="flex items-start justify-between text-sm text-crimson-red/70">
         <div className="flex flex-col gap-1">
-          <span>Created: {formatDate(user.createdAt)}</span>
-          <span>Updated: {formatDate(user.updatedAt)}</span>
+          <span>Created: {formatDateTime(user.createdAt)}</span>
+          <span>Updated: {formatDateTime(user.updatedAt)}</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className={`size-2.5 rounded-full ${status.color}`} />

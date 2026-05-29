@@ -5,18 +5,15 @@ import type { ApiResponse } from "@/shared/api/types";
 
 export const userApi = {
   getMe: () => httpClient.get<ApiResponse<User>>(ENDPOINTS.USERS.me),
-  updateMe: (data: UserUpdateRequest, profilePictureFile?: File) => {
+  updateMe: (data: UserUpdateRequest) =>
+    httpClient.patch<ApiResponse<UserBaseResponse>>(ENDPOINTS.USERS.updateMe, data),
+  updateAvatar: (file: File) => {
     const formData = new FormData();
-
-    if (data.firstName) formData.append("first_name", data.firstName);
-    if (data.lastName) formData.append("last_name", data.lastName);
-    if (data.gender) formData.append("gender", data.gender);
-    if (data.dob) formData.append("dob", data.dob);
-    if (data.phoneNumber) formData.append("phone_number", data.phoneNumber);
-    if (profilePictureFile) formData.append("profile_picture_file", profilePictureFile);
-
-    return httpClient.patch<ApiResponse<UserBaseResponse>>(ENDPOINTS.USERS.update, formData, {
+    formData.append("profile_picture_file", file);
+    return httpClient.patch<ApiResponse<UserBaseResponse>>(ENDPOINTS.USERS.updateAvatar, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
   },
+
+  removeAvatar: () => httpClient.patch<ApiResponse<UserBaseResponse>>(ENDPOINTS.USERS.removeAvatar),
 };
