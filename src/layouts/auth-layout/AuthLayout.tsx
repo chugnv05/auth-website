@@ -8,7 +8,7 @@ export default function AuthLayout() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
-        <div className="hidden lg:flex lg:items-center lg: justify-center">
+        <div className="hidden lg:flex lg:items-center lg:justify-center">
           <img src={svg.banner} alt="Banner" className="w-full" />
         </div>
 

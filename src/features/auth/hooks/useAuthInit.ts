@@ -1,37 +1,50 @@
+import { userApi } from "@/features/user/api/user.api";
 import { useEffect } from "react";
 import { authApi } from "../api/auth.api";
 import { useAuthStore } from "../store/auth.store";
 
-// call api refresh
-// be doc refresh token cookie
-// be doc -> verify ->gen new accessToken -> gui FE
-// => reload brower van se login
-export function useAuthInit() {
-  const setAuth = useAuthStore((s) => s.setAuth);
-  const logout = useAuthStore((s) => s.logout);
-  const setInitializing = useAuthStore((s) => s.setInitializing);
+// Promise singleton — được tạo 1 lần duy nhất ở module level.
+// Dù StrictMode mount/unmount/remount bao nhiêu lần,
+// initPromise luôn trỏ đến cùng 1 Promise → chỉ có đúng 1 API call.
+let initPromise: Promise<void> | null = null;
 
-  useEffect(() => {
-    const initialize = async () => {
-      try {
-        const response = await authApi.refresh();
+function runInit(): Promise<void> {
+  if (initPromise) return initPromise; // lần 2+ trở đi: reuse promise cũ
 
-        const user = response.data.data;
-        const accessToken = response.data.meta?.tokenInfo?.accessToken;
+  initPromise = (async () => {
+    const { setAuth, logout, setInitializing } = useAuthStore.getState();
+    try {
+      const refreshResponse = await authApi.refresh();
+      const accessToken = refreshResponse.data.data?.accessToken;
 
-        if (!user || !accessToken) {
-          logout();
-          return;
-        }
-
-        setAuth({ user, accessToken });
-      } catch {
+      if (!accessToken) {
         logout();
-      } finally {
-        setInitializing(false);
+        return;
       }
-    };
 
-    initialize();
+      useAuthStore.setState({ accessToken });
+
+      const meResponse = await userApi.getMe();
+      const user = meResponse.data.data;
+
+      if (!user) {
+        logout();
+        return;
+      }
+
+      setAuth({ user, accessToken });
+    } catch {
+      logout();
+    } finally {
+      setInitializing(false);
+    }
+  })();
+
+  return initPromise;
+}
+
+export function useAuthInit() {
+  useEffect(() => {
+    runInit();
   }, []);
 }

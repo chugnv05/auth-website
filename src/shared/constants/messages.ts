@@ -8,6 +8,10 @@ export const MESSAGES = {
     registerError: "Account creation failed",
   },
   common: {
+    findAllSuccess: "Find all success",
+    getInfo: "Info retrieved successfully",
+    addSuccess: "Add to success",
+    addError: "Add failure",
     saveSuccess: "Saved successfully",
     saveError: "Save failed, please try again",
     updateSuccess: "Updated successfully",
@@ -15,16 +19,27 @@ export const MESSAGES = {
     deleteSuccess: "Deleted successfully",
     deleteError: "Delete failed, please try again",
     errorGeneric: "Something went wrong, please try again",
+    changePassword: "Password changed successfully",
+    forgotPassword: "OTP send success",
+    resetPassword: "Password reset successful",
+    tokenRefreshSuccessful: "Token refresh successful",
   },
   user: {
-    firstName: "Your first name must be at least 2 characters",
-    lastName: "Your last name must be at least 2 characters",
-    dob: "Your age must be at least 16",
+    firstName: { invalid: "First name must be at least 2 characters" },
+    lastName: { invalid: "Last name must be at least 2 characters" },
+    gender: {
+      invalid: "Gender is required",
+    },
+    dob: {
+      required: "Date of birth is required",
+      invalid: "You must be at least 16 years old",
+    },
     phoneNumber: {
       existed: "Phone number already existed",
       format: "Phone number must be 10 digits, starting with 0. Example: 0974 xxx xxx",
     },
     email: {
+      required: "Email required",
       blank: "Email must not be blank",
       format: "Must be a valid email with domain",
       existed: "Email already existed",

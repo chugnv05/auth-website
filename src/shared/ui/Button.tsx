@@ -25,6 +25,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
 
         // Custom
+        panel: "bg-crimson-red text-peach hover:bg-crimson",
+
         auth: "bg-peach text-crimson-red gently-emerge",
 
         authOutline:
@@ -39,6 +41,10 @@ const buttonVariants = cva(
 
         learnMore:
           "border border-crimson-red px-6 py-3 text-crimson-red rounded-lg transition hover:bg-crimson-red hover:text-peach",
+
+        social: "bg-crimson-red text-peach hover:bg-crimson  imson gently-emerge",
+
+        editAvatar: "rounded-full bg-crimson text-peach shadow-md gently-emerge hover:shadow-lg",
       },
       size: {
         default: "h-9 px-4 py-2",

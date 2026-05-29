@@ -1,18 +1,7 @@
-export const GENDER = [
-  {
-    label: "Male",
-    value: "MALE",
-  },
-  {
-    label: "Female",
-    value: "FEMALE",
-  },
-  {
-    label: "Unknown",
-    value: "UNKNOWN",
-  },
-  {
-    label: "Other",
-    value: "OTHER",
-  },
-] as const;
+export const Gender = {
+  MALE: "MALE",
+  FEMALE: "FEMALE",
+  UNKNOWN: "UNKNOWN",
+  OTHER: "OTHER",
+} as const;
+export type Gender = (typeof Gender)[keyof typeof Gender];

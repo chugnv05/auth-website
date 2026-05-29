@@ -13,7 +13,8 @@ import {
 } from "react-hook-form";
 
 import { cn } from "@/shared/lib/utils";
-import { Label } from "./label";
+import type { VariantProps } from "class-variance-authority";
+import { Label, labelVariants } from "./label";
 
 const Form = FormProvider;
 
@@ -84,25 +85,23 @@ function FormLabel({
   className,
   required,
   children,
+  variant,
+  size,
   ...props
-}: React.ComponentProps<typeof LabelPrimitive.Root> & { required?: boolean }) {
+}: React.ComponentProps<typeof LabelPrimitive.Root> &
+  VariantProps<typeof labelVariants> & { required?: boolean }) {
   const { error, formItemId } = useFormField();
 
   return (
     <Label
       data-slot="form-label"
       htmlFor={formItemId}
-      className={cn(
-        "text-sm font-medium transition-colors",
-        error && "text-destructive",
-        className,
-      )}
+      variant={error ? "error" : variant}
+      className={className}
+      required={required}
       {...props}
     >
-      <span className="flex items-center gap-1">
-        {children}
-        {required && <span className="text-destructive">*</span>}
-      </span>
+      {children}
     </Label>
   );
 }
@@ -147,7 +146,7 @@ function FormMessage({ className, children, ...props }: React.ComponentProps<"p"
     <p
       data-slot="form-message"
       id={formMessageId}
-      className={cn("animate-in fade-in text-sm font-medium text-destructive", className)}
+      className={cn("animate-in fade-in text-xs font-medium text-destructive", className)}
       {...props}
     >
       {body}
