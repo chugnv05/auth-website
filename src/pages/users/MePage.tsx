@@ -1,5 +1,5 @@
 import { useAuthStore } from "@/features/auth/store/auth.store";
-import { MeCard } from "@/features/user/components/MeCard";
+import { MeForm } from "@/features/user";
 import { MeHeader } from "@/features/user/components/MeHeader";
 import useUpdateMe from "@/features/user/hooks/useUpdateMe";
 import { updateMeSchema, type UpdateMeSchemaType } from "@/features/user/schemas/update.schema";
@@ -44,7 +44,7 @@ export default function MePage() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-8">
           <MeHeader user={user} />
-          <MeCard form={form} user={user} isEditing={isEditing} />
+          <MeForm form={form} user={user} isEditing={isEditing} />
           <div className="flex justify-between items-center">
             <Button
               type="button"

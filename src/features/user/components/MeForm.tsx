@@ -20,13 +20,13 @@ import {
 import type { UseFormReturn } from "react-hook-form";
 import type { UpdateMeSchemaType } from "../schemas/update.schema";
 
-interface MeCardProps {
+interface MeFormProps {
   form: UseFormReturn<UpdateMeSchemaType>;
   user: User;
   isEditing: boolean;
 }
 
-export function MeCard({ form, user, isEditing }: MeCardProps) {
+export function MeForm({ form, user, isEditing }: MeFormProps) {
   const role = user.roles?.[0]?.name ?? "";
   const isAdmin = role === RoleType.ADMIN;
   const isManager = role === RoleType.MANAGER;

@@ -23,6 +23,8 @@ export const MESSAGES = {
     forgotPassword: "OTP send success",
     resetPassword: "Password reset successful",
     tokenRefreshSuccessful: "Token refresh successful",
+    changeSuccess: "Successful change",
+    changeError: "Change failed",
   },
   user: {
     firstName: { invalid: "First name must be at least 2 characters" },
@@ -45,12 +47,15 @@ export const MESSAGES = {
       existed: "Email already existed",
     },
     password: {
+      required: "Password is required",
       invalid: "Your password must be at least 6 characters.",
       blank: "Password must not be blank",
       uppercase: "Password must contain at least one uppercase letter",
       lowercase: "Password must contain at least one lowercase letter",
       number: "Password must contain at least one digit",
       specialCharacters: "Password must contain at least one special character(@#$%&*!)",
+      reEnter: "Please confirm your new password",
+      doNotMatch: "Password do not match",
     },
   },
   role: {
