@@ -12,6 +12,8 @@ import {
 } from "@/shared/ui";
 import { Eye, Pencil, Trash2, Upload } from "lucide-react";
 import { useState } from "react";
+import { AvatarRemoveDialog } from "./AvatarRemoveDialog";
+import { AvatarUpdateDialog } from "./AvatarUpdateDialog";
 import { AvatarViewDialog } from "./AvatarViewDialog";
 
 interface MeHeaderProps {
@@ -21,6 +23,8 @@ interface MeHeaderProps {
 export function MeHeader({ user }: MeHeaderProps) {
   const role = user.roles?.[0]?.name ?? "";
   const [viewOpen, setViewOpen] = useState(false);
+  const [updateOpen, setUpdateOpen] = useState(false);
+  const [removeOpen, setRemoveOpen] = useState(false);
 
   const initials = user.fullName
     .split(" ")
@@ -53,21 +57,14 @@ export function MeHeader({ user }: MeHeaderProps) {
               View
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem
-              className="gap-2 cursor-pointer"
-              onSelect={() => {
-                // edit ảnh
-              }}
-            >
+            <DropdownMenuItem className="gap-2 cursor-pointer" onSelect={() => setUpdateOpen(true)}>
               <Upload className="size-4" />
               Edit
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
               className="gap-2 cursor-pointer text-destructive focus:text-destructive"
-              onSelect={() => {
-                // Xóa ảnh
-              }}
+              onSelect={() => setRemoveOpen(true)}
             >
               <Trash2 className="size-4" />
               Remove
@@ -85,7 +82,10 @@ export function MeHeader({ user }: MeHeaderProps) {
       <AvatarViewDialog user={user} open={viewOpen} onOpenChange={setViewOpen} />
 
       {/* Sua anh */}
+      <AvatarUpdateDialog user={user} open={updateOpen} onOpenChange={setUpdateOpen} />
+
       {/* Xoa anh */}
+      <AvatarRemoveDialog user={user} open={removeOpen} onOpenChange={setRemoveOpen} />
     </div>
   );
 }
