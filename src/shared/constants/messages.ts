@@ -25,6 +25,10 @@ export const MESSAGES = {
     tokenRefreshSuccessful: "Token refresh successful",
     changeSuccess: "Successful change",
     changeError: "Change failed",
+    sendSuccess: "Sent successfully",
+    sendError: "Sending failed",
+    verifySuccess: "Verified successfully",
+    verifyError: "Verification failed",
   },
   user: {
     firstName: { invalid: "First name must be at least 2 characters" },
@@ -72,5 +76,11 @@ export const MESSAGES = {
     format:
       "Permisison name must only contain lowercase letters, ':', and the '_' character to separate words",
     existed: "Permission already existed",
+  },
+  otp: {
+    invalid: "OTP code is incorrect or expired",
+    required: "OTP is required",
+    format: "OTP must be at most 6 digits",
+    regex: "OTP must contain digits only",
   },
 } as const;
