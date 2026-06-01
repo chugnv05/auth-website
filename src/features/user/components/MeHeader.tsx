@@ -11,6 +11,8 @@ import {
   DropdownMenuTrigger,
 } from "@/shared/ui";
 import { Eye, Pencil, Trash2, Upload } from "lucide-react";
+import { useState } from "react";
+import { AvatarViewDialog } from "./AvatarViewDialog";
 
 interface MeHeaderProps {
   user: User;
@@ -18,6 +20,8 @@ interface MeHeaderProps {
 
 export function MeHeader({ user }: MeHeaderProps) {
   const role = user.roles?.[0]?.name ?? "";
+  const [viewOpen, setViewOpen] = useState(false);
+
   const initials = user.fullName
     .split(" ")
     .map((n) => n[0])
@@ -36,19 +40,15 @@ export function MeHeader({ user }: MeHeaderProps) {
           <DropdownMenuTrigger asChild>
             <Button
               type="button"
-              variant="editAvatar"
+              variant="iconRound"
               className="absolute bottom-0 right-0 z-10 size-7"
             >
               <Pencil className="size-3.5" />
             </Button>
           </DropdownMenuTrigger>
+
           <DropdownMenuContent align="center" className="min-w-auto">
-            <DropdownMenuItem
-              className="gap-2 cursor-pointer"
-              onSelect={() => {
-                // View ảnh
-              }}
-            >
+            <DropdownMenuItem className="gap-2 cursor-pointer" onSelect={() => setViewOpen(true)}>
               <Eye className="size-4" />
               View
             </DropdownMenuItem>
@@ -80,6 +80,12 @@ export function MeHeader({ user }: MeHeaderProps) {
         {role}
       </span>
       <span className="text-lg font-bold text-crimson-red">{user.fullName}</span>
+
+      {/* Xem anh */}
+      <AvatarViewDialog user={user} open={viewOpen} onOpenChange={setViewOpen} />
+
+      {/* Sua anh */}
+      {/* Xoa anh */}
     </div>
   );
 }

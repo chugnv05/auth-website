@@ -18,7 +18,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        outline: "border border-border bg-background hover:bg-muted",
+        outline: "border border-border bg-background text-crimson hover:bg-muted",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-muted hover:text-foreground",
         destructive: "bg-destructive text-white hover:bg-destructive/90",
@@ -44,7 +44,7 @@ const buttonVariants = cva(
 
         social: "bg-crimson-red text-peach hover:bg-crimson  imson gently-emerge",
 
-        editAvatar: "rounded-full bg-crimson text-peach shadow-md gently-emerge hover:shadow-lg",
+        iconRound: "rounded-full bg-crimson text-peach shadow-md gently-emerge hover:shadow-lg",
       },
       size: {
         default: "h-9 px-4 py-2",
