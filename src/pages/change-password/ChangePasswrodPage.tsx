@@ -1,5 +1,5 @@
 import { PATHS } from "@/app/router/paths";
-import { ChangePasswordForm } from "@/features/auth/change-password/components/ChangePasswordForm";
+import { ChangePasswordForm } from "@/features/auth/change-password";
 import { useNavigate } from "react-router-dom";
 
 export default function ChangePasswordPage() {

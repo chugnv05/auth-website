@@ -1,5 +1,5 @@
-import ChangePasswordPage from "@/pages/change-password/ChangePasswrodPage";
 import DashboardPage from "@/pages/dashboard/DashboardPage";
+import ChangePasswordPage from "@/pages/change-password/ChangePasswrodPage";
 import MePage from "@/pages/users/MePage";
 import { PATHS } from "./paths";
 
