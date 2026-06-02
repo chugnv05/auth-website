@@ -8,7 +8,7 @@ export const PATHS = {
   FORGOT_PASSWORD: "/forgot-password",
   CHANGE_PASSWORD: "/change-password",
   RESET_PASSWORD: "/reset-password",
-  VERIFY_OTP: "/verify-otp",
+  VERIFY_OTP: "/verify",
   NEWS: "/news",
   BLOG: "/blog",
   USER: "/users",
