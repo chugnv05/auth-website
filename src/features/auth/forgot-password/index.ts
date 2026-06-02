@@ -1,3 +1,5 @@
+export { ResetPasswordForm } from "./components/ResetPasswordForm";
+
 export { VerifyOtpForm } from "./components/VerifyOtpForm";
 
 export { ForgotPasswordForm } from "./components/ForgotPasswordForm";
@@ -10,5 +12,5 @@ export {
   verifyOtpSchema,
 } from "./schemas/forgot-password.shema";
 export { type ForgotPasswordRequest } from "./types/forgot-password-request.type";
-export { type OptRequest } from "./types/otp-request.type";
+export { type OtpRequest } from "./types/otp-request.type";
 export { type ResetPasswordRequest } from "./types/reset-password-request.type";

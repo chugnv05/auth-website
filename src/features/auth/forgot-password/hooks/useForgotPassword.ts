@@ -32,5 +32,9 @@ export function useVerifyOtp(email: string) {
 export function useResetPassword(email: string) {
   return useMutation({
     mutationFn: (data: ResetPasswordSchemaType) => authApi.resetPassword(email, data),
+    onSuccess: (res) => {
+      notify.success(res.data.data ?? MESSAGES.common.resetSuccess);
+    },
+    onError: (error) => notify.error(getErrorMessage(error)),
   });
 }

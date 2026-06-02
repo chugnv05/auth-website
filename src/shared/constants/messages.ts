@@ -29,6 +29,8 @@ export const MESSAGES = {
     sendError: "Sending failed",
     verifySuccess: "Verified successfully",
     verifyError: "Verification failed",
+    resetSuccess: "Reset successfully",
+    resetError: "Reset failed",
   },
   user: {
     firstName: { invalid: "First name must be at least 2 characters" },
