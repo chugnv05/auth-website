@@ -1,3 +1,5 @@
+export { VerifyOtpForm } from "./components/VerifyOtpForm";
+
 export { ForgotPasswordForm } from "./components/ForgotPasswordForm";
 
 export { useForgotPassword, useResetPassword, useVerifyOtp } from "./hooks/useForgotPassword";

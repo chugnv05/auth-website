@@ -1,3 +1,4 @@
+import VerifyOtpPage from "@/pages/auth/VerifyOtpPage";
 import ForgotPasswordPage from "@/pages/forgot-password/ForgotPasswordPage";
 import LoginPage from "@/pages/login/LoginPage";
 import RegisterPage from "@/pages/register/RegisterPage";
@@ -15,5 +16,9 @@ export const guestRoutes = [
   {
     path: PATHS.FORGOT_PASSWORD,
     element: <ForgotPasswordPage />,
+  },
+  {
+    path: PATHS.VERIFY_OTP,
+    element: <VerifyOtpPage />,
   },
 ];
