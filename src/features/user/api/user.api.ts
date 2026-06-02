@@ -9,7 +9,7 @@ export const userApi = {
     httpClient.patch<ApiResponse<UserBaseResponse>>(ENDPOINTS.USERS.updateMe, data),
   updateAvatar: (file: File) => {
     const formData = new FormData();
-    formData.append("profile_picture_file", file);
+    formData.append("profilePictureFile", file);
     return httpClient.patch<ApiResponse<UserBaseResponse>>(ENDPOINTS.USERS.updateAvatar, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });

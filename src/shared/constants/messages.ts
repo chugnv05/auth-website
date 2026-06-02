@@ -23,6 +23,14 @@ export const MESSAGES = {
     forgotPassword: "OTP send success",
     resetPassword: "Password reset successful",
     tokenRefreshSuccessful: "Token refresh successful",
+    changeSuccess: "Successful change",
+    changeError: "Change failed",
+    sendSuccess: "Sent successfully",
+    sendError: "Sending failed",
+    verifySuccess: "Verified successfully",
+    verifyError: "Verification failed",
+    resetSuccess: "Reset successfully",
+    resetError: "Reset failed",
   },
   user: {
     firstName: { invalid: "First name must be at least 2 characters" },
@@ -45,12 +53,15 @@ export const MESSAGES = {
       existed: "Email already existed",
     },
     password: {
+      required: "Password is required",
       invalid: "Your password must be at least 6 characters.",
       blank: "Password must not be blank",
       uppercase: "Password must contain at least one uppercase letter",
       lowercase: "Password must contain at least one lowercase letter",
       number: "Password must contain at least one digit",
       specialCharacters: "Password must contain at least one special character(@#$%&*!)",
+      reEnter: "Please confirm your new password",
+      doNotMatch: "Password do not match",
     },
   },
   role: {
@@ -67,5 +78,11 @@ export const MESSAGES = {
     format:
       "Permisison name must only contain lowercase letters, ':', and the '_' character to separate words",
     existed: "Permission already existed",
+  },
+  otp: {
+    invalid: "OTP code is incorrect or expired",
+    required: "OTP is required",
+    format: "OTP must be at most 6 digits",
+    regex: "OTP must contain digits only",
   },
 } as const;

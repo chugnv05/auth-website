@@ -20,13 +20,13 @@ import {
 import type { UseFormReturn } from "react-hook-form";
 import type { UpdateMeSchemaType } from "../schemas/update.schema";
 
-interface MeCardProps {
+interface MeFormProps {
   form: UseFormReturn<UpdateMeSchemaType>;
   user: User;
   isEditing: boolean;
 }
 
-export function MeCard({ form, user, isEditing }: MeCardProps) {
+export function MeForm({ form, user, isEditing }: MeFormProps) {
   const role = user.roles?.[0]?.name ?? "";
   const isAdmin = role === RoleType.ADMIN;
   const isManager = role === RoleType.MANAGER;
@@ -45,7 +45,9 @@ export function MeCard({ form, user, isEditing }: MeCardProps) {
             name="firstName"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel variant="basic">First Name</FormLabel>
+                <FormLabel variant="basic" required>
+                  First Name
+                </FormLabel>
                 <FormControl>
                   <Input variant="basic" disabled={!isEditing} {...field} />
                 </FormControl>
@@ -58,7 +60,9 @@ export function MeCard({ form, user, isEditing }: MeCardProps) {
             name="lastName"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel variant="basic">Last Name</FormLabel>
+                <FormLabel variant="basic" required>
+                  Last Name
+                </FormLabel>
                 <FormControl>
                   <Input variant="basic" disabled={!isEditing} {...field} />
                 </FormControl>
@@ -73,7 +77,9 @@ export function MeCard({ form, user, isEditing }: MeCardProps) {
             name="gender"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel variant="basic">Gender</FormLabel>
+                <FormLabel variant="basic" required>
+                  Gender
+                </FormLabel>
                 <Select disabled={!isEditing} onValueChange={field.onChange} value={field.value}>
                   <FormControl>
                     <SelectTrigger variant="auth">
@@ -97,7 +103,9 @@ export function MeCard({ form, user, isEditing }: MeCardProps) {
             name="dob"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel variant="basic">Date of Birth</FormLabel>
+                <FormLabel variant="basic" required>
+                  Date of Birth
+                </FormLabel>
                 <FormControl>
                   <Input variant="basic" type="date" disabled={!isEditing} {...field} />
                 </FormControl>
@@ -111,7 +119,9 @@ export function MeCard({ form, user, isEditing }: MeCardProps) {
           name="phoneNumber"
           render={({ field }) => (
             <FormItem>
-              <FormLabel variant="basic">Phone Number</FormLabel>
+              <FormLabel variant="basic" required>
+                Phone Number
+              </FormLabel>
               <FormControl>
                 <Input
                   variant="basic"
