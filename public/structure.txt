@@ -55,8 +55,42 @@
 │   │   ├───api
 │   │   │       auth.api.ts
 │   │   │
+│   │   ├───change-password
+│   │   │   │   index.ts
+│   │   │   │
+│   │   │   ├───components
+│   │   │   │       ChangePasswordForm.tsx
+│   │   │   │
+│   │   │   ├───hooks
+│   │   │   │       useChangePassword.ts
+│   │   │   │
+│   │   │   ├───schemas
+│   │   │   │       change-password.shema.ts
+│   │   │   │
+│   │   │   └───types
+│   │   │           change-password-request.type.ts
+│   │   │
 │   │   ├───components
 │   │   │       ContinueWithSocial.tsx
+│   │   │
+│   │   ├───forgot-password
+│   │   │   │   index.ts
+│   │   │   │
+│   │   │   ├───components
+│   │   │   │       ForgotPasswordForm.tsx
+│   │   │   │       ResetPasswordForm.tsx
+│   │   │   │       VerifyOtpForm.tsx
+│   │   │   │
+│   │   │   ├───hooks
+│   │   │   │       useForgotPassword.ts
+│   │   │   │
+│   │   │   ├───schemas
+│   │   │   │       forgot-password.shema.ts
+│   │   │   │
+│   │   │   └───types
+│   │   │           forgot-password-request.type.ts
+│   │   │           otp-request.type.ts
+│   │   │           reset-password-request.type.ts
 │   │   │
 │   │   ├───hooks
 │   │   │       useAuthInit.ts
@@ -114,7 +148,10 @@
 │       │       user.api.ts
 │       │
 │       ├───components
-│       │       MeCard.tsx
+│       │       AvatarRemoveDialog.tsx
+│       │       AvatarUpdateDialog.tsx
+│       │       AvatarViewDialog.tsx
+│       │       MeForm.tsx
 │       │       MeHeader.tsx
 │       │
 │       ├───hooks
@@ -127,6 +164,7 @@
 │   ├───auth-layout
 │   │       AuthLayout.tsx
 │   │
+│   ├───change-password
 │   ├───protected-layout
 │   │       DashboardLayout.tsx
 │   │       index.tsx
@@ -139,19 +177,22 @@
 │           index.tsx
 │
 ├───pages
+│   ├───auth
+│   │       ChangePasswrodPage.tsx
+│   │       ForgotPasswordPage.tsx
+│   │       LoginPage.tsx
+│   │       RegisterPage.tsx
+│   │       ResetPasswordPage.tsx
+│   │       VerifyOtpPage.tsx
+│   │
 │   ├───dashboard
 │   │       DashboardPage.tsx
 │   │
 │   ├───home
 │   │       HomePage.tsx
 │   │
-│   ├───login
-│   │       LoginPage.tsx
-│   │
 │   ├───permissions
 │   ├───register
-│   │       RegisterPage.tsx
-│   │
 │   ├───roles
 │   └───users
 │           MePage.tsx
@@ -237,6 +278,7 @@
 │       ├───custom
 │       │       confirm-dialog.tsx
 │       │       index.ts
+│       │       otp-input.tsx
 │       │       password-input.tsx
 │       │
 │       └───overlay
