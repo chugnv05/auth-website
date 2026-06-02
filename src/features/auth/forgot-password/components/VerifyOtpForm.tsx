@@ -1,13 +1,5 @@
-import {
-  Button,
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-  Input,
-} from "@/shared/ui";
+import { Button, Form, FormField, FormItem, FormLabel, FormMessage } from "@/shared/ui";
+import { OtpInput } from "@/shared/ui/custom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useVerifyOtp } from "../hooks/useForgotPassword";
@@ -42,15 +34,8 @@ export function VerifyOtpForm({ email, onSuccess, onCancel }: VerifyOtpFormProps
               <FormLabel variant="basic" required>
                 OTP Code
               </FormLabel>
-              <FormControl>
-                <Input
-                  variant="basic"
-                  placeholder="Enter OTP sent to your email"
-                  maxLength={6}
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
+              <OtpInput value={field.value} onChange={field.onChange} />
+              <FormMessage className="text-center" />
             </FormItem>
           )}
         />
