@@ -12,7 +12,7 @@ export default function AuthLayout() {
           <img src={svg.banner} alt="Banner" className="w-full" />
         </div>
 
-        <div className="flex items-center justify-center p-6">
+        <div className="flex items-center justify-center bg-creamy-shell p-6">
           <Outlet />
         </div>
       </div>

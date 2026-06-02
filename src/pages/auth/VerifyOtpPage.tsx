@@ -8,6 +8,7 @@ export default function VerifyOtpPage() {
   const localtion = useLocation();
   const email = localtion.state?.email as string | undefined;
 
+  // Khong có email redirect -> forgot password
   useEffect(() => {
     if (!email) navigate(PATHS.FORGOT_PASSWORD, { replace: true });
   }, [email, navigate]);

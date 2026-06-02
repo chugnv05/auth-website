@@ -31,6 +31,10 @@
   --crimson: #e83e5a;
   --crimson-red: #a4193d;
   --peach: #ffdfb9;
+  --creamy-shell: #ffeedb;
+  --soft-champage: #ffe5c6;
+  --pale-almond: #ffe8cc;
+  --light-papaya: #ffe0bd;
   --rich-black: #101820;
   --vivid-yellow: #fee715;
   --oxford-blue: #0a174e;
@@ -123,10 +127,13 @@
   --font-heading: var(--font-sans);
 
   /* Colors */
+  --color-crimson: var(--crimson);
   --color-crimson-red: var(--crimson-red);
   --color-peach: var(--peach);
-  --color-crimson: var(--crimson);
-
+  --color-creamy-shell: var(--creamy-shell);
+  --color-soft-champage: var(--soft-champage);
+  --color-pale-almond: var(--pale-almond);
+  --color-light-papaya: var(--light-papaya);
   --color-rich-black: var(--rich-black);
   --color-vivid-yellow: var(--vivid-yellow);
   --color-oxford-blue: var(--oxford-blue);
