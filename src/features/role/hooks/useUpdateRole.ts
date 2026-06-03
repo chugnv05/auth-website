@@ -1,0 +1,22 @@
+import { MESSAGES } from "@/shared/constants/messages";
+import { getErrorMessage } from "@/shared/lib/error";
+import { notify } from "@/shared/lib/toast";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { roleApi } from "../api/role.api";
+import { ROLE_KEYS } from "./useRoles";
+export function useUpdateRole() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string; data: Parameters<typeof roleApi.update>[1] }) =>
+      roleApi.update(id, data),
+    onSuccess: (res, { id }) => {
+      queryClient.invalidateQueries({ queryKey: ROLE_KEYS.all });
+      queryClient.invalidateQueries({ queryKey: ROLE_KEYS.detail(id) });
+      notify.success(res.data.message ?? MESSAGES.common.updateSuccess);
+    },
+    onError: (error) => {
+      notify.error(getErrorMessage(error));
+    },
+  });
+}

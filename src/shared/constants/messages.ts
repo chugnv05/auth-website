@@ -31,6 +31,9 @@ export const MESSAGES = {
     verifyError: "Verification failed",
     resetSuccess: "Reset successfully",
     resetError: "Reset failed",
+    maxNameLength: "Name is too long",
+    maxDesLength: "Description is too long",
+    invalidDescription: "Description cannot be blank",
   },
   user: {
     firstName: { invalid: "First name must be at least 2 characters" },
@@ -78,11 +81,13 @@ export const MESSAGES = {
     format:
       "Permisison name must only contain lowercase letters, ':', and the '_' character to separate words",
     existed: "Permission already existed",
+    select: "Select at least 1 permission",
   },
   otp: {
     invalid: "OTP code is incorrect or expired",
     required: "OTP is required",
     format: "OTP must be at most 6 digits",
     regex: "OTP must contain digits only",
+    min: "Select at least 1 role",
   },
 } as const;
