@@ -4,9 +4,10 @@ export interface TokenInfo {
 }
 
 export interface Pagination {
-  page: number;
-  size: number;
   total: number;
+  count: number;
+  perPage: number;
+  currentPage: number;
   totalPages: number;
 }
 

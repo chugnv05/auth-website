@@ -30,10 +30,14 @@ const textareaVariants = cva(
     variants: {
       variant: {
         default: "border-border",
-
         auth: "border-crimson-red/20 bg-peach/40 focus-visible:border-crimson-red",
-
         ghost: "border-transparent bg-muted/50 focus-visible:border-border",
+        basic: [
+          "border-crimson-red/20 bg-white",
+          "focus-visible:border-crimson-red",
+          "focus-visible:ring-crimson-red/20",
+          "shadow-sm",
+        ],
       },
 
       resize: {

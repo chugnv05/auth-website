@@ -8,7 +8,7 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
       className={cn([
         "relative w-full overflow-x-auto",
         "rounded-2xl border border-crimson-red/10",
-        "bg-peach",
+        "bg-creamy-shell",
         "shadow-[0_6px_30px_rgba(0,0,0,0.05)]",
       ])}
     >
@@ -29,7 +29,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
     <thead
       data-slot="table-header"
       className={cn(
-        ["bg-crimson-red/5", "[&_tr]:border-b", "[&_tr]:border-crimson-red/10"],
+        ["bg-crimson-red hover:bg-crimson", "[&_tr]:border-b", "[&_tr]:border-crimson-red/10"],
         className,
       )}
       {...props}
@@ -73,12 +73,9 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
         [
           "border-b border-crimson-red/10",
           "transition-all duration-200",
-
           "hover:bg-crimson-red/5",
           "hover:-translate-y-px",
-
           "data-[state=selected]:bg-crimson-red/10",
-
           "has-aria-expanded:bg-crimson-red/5",
         ],
         className,
@@ -98,9 +95,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
           "text-left align-middle",
           "font-semibold",
           "whitespace-nowrap",
-
-          "text-crimson-red",
-
+          "text-peach",
           "(has-[[role=checkbox]]:pr-0)",
         ],
         className,
@@ -119,9 +114,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
           "px-4 py-3",
           "align-middle",
           "whitespace-nowrap",
-
           "text-crimson-red/80",
-
           "(has-[[role=checkbox]]:pr-0)",
         ],
         className,
