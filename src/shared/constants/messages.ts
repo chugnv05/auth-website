@@ -73,6 +73,7 @@ export const MESSAGES = {
     format:
       "Role name must only contain uppercase letters, numbers, and the '_' character to separate words",
     existed: "Role already existed",
+    select: "Select at least 1 role",
   },
   permission: {
     denied: "Permission denied",

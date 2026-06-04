@@ -1,27 +1,27 @@
-import type { RoleDetailResponse } from "@/entities/role";
+import type { PermissionDetailResponse } from "@/entities/permission";
 import { formatDate } from "@/shared/lib/format";
 import { Button, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/shared/ui";
 import { DataTable, type ColumnDef, type PaginationState } from "@/shared/ui/custom/data-table";
 import { Pencil, Trash2 } from "lucide-react";
 
-type RoleTableProps = {
-  data: RoleDetailResponse[];
+type PermissionTableProps = {
+  data: PermissionDetailResponse[];
   isLoading?: boolean;
   pagination?: PaginationState;
   onPageChange?: (page: number) => void;
-  onEdit?: (role: RoleDetailResponse) => void;
-  onDelete?: (role: RoleDetailResponse) => void;
+  onEdit?: (role: PermissionDetailResponse) => void;
+  onDelete?: (role: PermissionDetailResponse) => void;
 };
 
-export function RoleTable({
+export function PermissionTable({
   data,
   isLoading,
   pagination,
   onPageChange,
   onEdit,
   onDelete,
-}: RoleTableProps) {
-  const columns: ColumnDef<RoleDetailResponse>[] = [
+}: PermissionTableProps) {
+  const columns: ColumnDef<PermissionDetailResponse>[] = [
     {
       key: "name",
       header: "Name",

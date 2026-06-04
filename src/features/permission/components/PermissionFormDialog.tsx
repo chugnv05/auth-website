@@ -1,4 +1,4 @@
-import type { RoleDetailResponse } from "@/entities/role";
+import type { PermissionDetailResponse } from "@/entities/permission";
 import {
   Button,
   Dialog,
@@ -18,50 +18,50 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { roleSchema, type RoleSchemaType } from "../schemas/role.schema";
+import { permissionSchema, type PermissionSchemaType } from "../schemas/permission.schema";
 
-type RoleFormDialogProps = {
+type PermissionFormDialogProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onSubmit: (values: RoleSchemaType) => void;
+  onSubmit: (values: PermissionSchemaType) => void;
   isPending?: boolean;
-  // khi update thi truyen role vao, create thì undefine
-  role?: RoleDetailResponse;
+  // khi update thi truyen permission vao, create thì undefine
+  permission?: PermissionDetailResponse;
 };
 
-export function RoleFormDialog({
+export function PermissionFormDialog({
   open,
   onOpenChange,
   onSubmit,
   isPending = false,
-  role,
-}: RoleFormDialogProps) {
-  const isEdit = !!role;
-  const form = useForm<RoleSchemaType>({
-    resolver: zodResolver(roleSchema),
+  permission,
+}: PermissionFormDialogProps) {
+  const isEdit = !!permission;
+  const form = useForm<PermissionSchemaType>({
+    resolver: zodResolver(permissionSchema),
     defaultValues: {
       name: "",
       description: "",
-      permissions: [],
+      roles: [],
     },
   });
 
   // sync - đồng bộ khi mo dialog edit
   useEffect(() => {
     if (open) {
-      if (role) {
+      if (permission) {
         form.reset({
-          name: role.name,
-          description: role.description,
-          permissions: [], // cần bổ sung list permission
+          name: permission.name,
+          description: permission.description,
+          roles: [], // cần bổ sung list role
         });
       } else {
-        form.reset({ name: "", description: "", permissions: [] });
+        form.reset({ name: "", description: "", roles: [] });
       }
     }
-  }, [open, role]);
+  }, [open, permission]);
 
-  const handleSubmit = (values: RoleSchemaType) => {
+  const handleSubmit = (values: PermissionSchemaType) => {
     onSubmit(values);
   };
 
@@ -70,7 +70,7 @@ export function RoleFormDialog({
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-crimson-red">
-            {isEdit ? "Edit Roles" : "Create New Roles"}
+            {isEdit ? "Edit Permissions" : "Create New Permissions"}
           </DialogTitle>
         </DialogHeader>
         <Form {...form}>
@@ -86,10 +86,10 @@ export function RoleFormDialog({
                   <FormControl>
                     <Input
                       variant="basic"
-                      placeholder="VD: MANAGER_HR"
+                      placeholder="VD: user:view_self"
                       disabled={isEdit} // tên không sửa được khi edit (BE logic)
                       {...field}
-                      onChange={(e) => field.onChange(e.target.value.toUpperCase())}
+                      onChange={(e) => field.onChange(e.target.value.toLocaleLowerCase())}
                     />
                   </FormControl>
                   <FormMessage />
@@ -108,7 +108,7 @@ export function RoleFormDialog({
                   <FormControl>
                     <Textarea
                       variant="basic"
-                      placeholder="Description of this role"
+                      placeholder="Description of this permission"
                       className="resize-none"
                       rows={3}
                       {...field}
@@ -121,11 +121,11 @@ export function RoleFormDialog({
 
             <FormField
               control={form.control}
-              name="permissions"
+              name="roles"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel variant="basic" required>
-                    Permissions - Select the permissions for this role
+                    Roles - Select the roles for this permission
                   </FormLabel>
                   <FormControl>
                     <Input
