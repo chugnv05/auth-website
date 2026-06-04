@@ -42,7 +42,7 @@ export function useRolesByPermission(permissionId: string | undefined) {
     queryKey: ROLE_KEYS.byPermission(permissionId!),
     queryFn: () => permissionApi.getRolesByPermission(permissionId!),
     enabled: !!permissionId,
-    select: (res) => (res.data.data ?? []).map((r) => r.id).join(","),
+    select: (res) => (res.data.data ?? []).map((r) => r.id),
     staleTime: 5 * 60 * 1000,
   });
 }

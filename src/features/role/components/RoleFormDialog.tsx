@@ -63,16 +63,14 @@ export function RoleFormDialog({
       description: role?.description ?? "",
       permissions: [],
     });
-  }, [open, role]);
+  }, [open, role, form]);
 
   // pre-fill permissions sau khi assigned load xong - only edit
-  // assignedPermissionIds là string "id1,id2,..." để giữ referential stability
   useEffect(() => {
-    if (!isEdit || assignedPermissionIds === undefined) return;
-    form.setValue("permissions", assignedPermissionIds ? assignedPermissionIds.split(",") : [], {
-      shouldDirty: false,
-    });
-  }, [assignedPermissionIds]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (isEdit && assignedPermissionIds) {
+      form.setValue("permissions", assignedPermissionIds);
+    }
+  }, [assignedPermissionIds, isEdit, form]);
 
   const isLoadingPicker = isLoadingPermissions || (isEdit && isLoadingAssigned);
 

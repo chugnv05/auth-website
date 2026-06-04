@@ -62,15 +62,14 @@ export function PermissionFormDialog({
       description: permission?.description ?? "",
       roles: [],
     });
-  }, [open, permission]);
+  }, [open, permission, form]);
 
   // pre-fill roles sau khi data assigned load - only edit
   useEffect(() => {
-    if (!isEdit || assignedRoleIds === undefined) return;
-    form.setValue("roles", assignedRoleIds ? assignedRoleIds.split(",") : [], {
-      shouldDirty: false,
-    });
-  }, [assignedRoleIds]);
+    if (isEdit && assignedRoleIds) {
+      form.setValue("roles", assignedRoleIds);
+    }
+  }, [assignedRoleIds, isEdit, form]);
 
   const isLoadingPicker = isLoadingRoles || (isEdit && isLoadingAssigned);
 

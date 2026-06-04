@@ -31,7 +31,7 @@ export default function ProtectedSidebar({ isOpen, onToggle }: SidebarProps) {
         {/* an logo khi sidebar close */}
         <div
           className={cn(
-            "overflow-hidden, transition-all duration-300",
+            "overflow-hidden transition-all duration-300",
             isOpen ? "w-auto opacity-100" : "w-0 opacity-0",
           )}
         >
@@ -69,25 +69,22 @@ export default function ProtectedSidebar({ isOpen, onToggle }: SidebarProps) {
           return (
             <div key={column.title}>
               {/* item cha */}
-              <button
-                onClick={() => hasChildren && toggleItem(column.title)}
-                className={cn(
-                  "flex w-full items-center px-3 py-2.5",
-                  "text-peach hover:bg-crimson transition-colors duration-200",
-                  "cursor-pointer",
-                  isOpen ? "gap-3 justify-start" : "gap-0 justify-center",
-                )}
-              >
-                {/* Luon hien thi icon */}
-                <span className="shrink-0">{Icon && <Icon className="size-5" />}</span>
-
-                {/* title và chevron - chi hien thi khi mo sidebar */}
-                {isOpen && (
-                  <>
-                    <span className="flex-1 text-left text-sm font-medium whitespace-nowrap overflow-hidden">
-                      {column.title}
-                    </span>
-                    {hasChildren && (
+              {hasChildren ? (
+                <button
+                  onClick={() => toggleItem(column.title)}
+                  className={cn(
+                    "flex w-full items-center px-3 py-2.5",
+                    "text-peach hover:bg-crimson transition-colors duration-200",
+                    "cursor-pointer",
+                    isOpen ? "gap-3 justify-start" : "gap-0 justify-center",
+                  )}
+                >
+                  <span className="shrink-0">{Icon && <Icon className="size-5" />}</span>
+                  {isOpen && (
+                    <>
+                      <span className="flex-1 text-left text-sm font-medium whitespace-nowrap overflow-hidden">
+                        {column.title}
+                      </span>
                       <span className="shrink-0 text-peach/70">
                         {isExpanded ? (
                           <ChevronDown className="size-4" />
@@ -95,10 +92,26 @@ export default function ProtectedSidebar({ isOpen, onToggle }: SidebarProps) {
                           <ChevronRight className="size-4" />
                         )}
                       </span>
-                    )}
-                  </>
-                )}
-              </button>
+                    </>
+                  )}
+                </button>
+              ) : (
+                <Link
+                  to={column.to}
+                  className={cn(
+                    "flex w-full items-center px-3 py-2.5",
+                    "text-peach hover:bg-crimson transition-colors duration-200",
+                    isOpen ? "gap-3 justify-start" : "gap-0 justify-center",
+                  )}
+                >
+                  <span className="shrink-0">{Icon && <Icon className="size-5" />}</span>
+                  {isOpen && (
+                    <span className="flex-1 text-left text-sm font-medium whitespace-nowrap overflow-hidden">
+                      {column.title}
+                    </span>
+                  )}
+                </Link>
+              )}
               {/* item con - chi hien khi sidebar mo */}
               {hasChildren && isOpen && isExpanded && (
                 <div className="flex flex-col">
