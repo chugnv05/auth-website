@@ -1,8 +1,11 @@
 import type { RoleDetailResponse } from "@/entities/role";
+import { usePermissionsLimit } from "@/features/permission";
+import { usePermissionsByRole } from "@/features/permission/hooks/usePermission";
 import {
   Button,
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -15,19 +18,19 @@ import {
   Input,
   Textarea,
 } from "@/shared/ui";
+import { MultiSelectPicker } from "@/shared/ui/custom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { roleSchema, type RoleSchemaType } from "../schemas/role.schema";
-
-type RoleFormDialogProps = {
+interface RoleFormDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onSubmit: (values: RoleSchemaType) => void;
   isPending?: boolean;
   // khi update thi truyen role vao, create thì undefine
   role?: RoleDetailResponse;
-};
+}
 
 export function RoleFormDialog({
   open,
@@ -37,44 +40,53 @@ export function RoleFormDialog({
   role,
 }: RoleFormDialogProps) {
   const isEdit = !!role;
+
+  // all perrmission -> picker
+  const { data: permissionOptions = [], isLoading: isLoadingPermissions } = usePermissionsLimit();
+
+  // permissions duoc gan cho role nay - chi fetch khi edit
+
+  const { data: assignedPermissionIds, isLoading: isLoadingAssigned } = usePermissionsByRole(
+    isEdit ? role.id : undefined,
+  );
+
   const form = useForm<RoleSchemaType>({
     resolver: zodResolver(roleSchema),
-    defaultValues: {
-      name: "",
-      description: "",
-      permissions: [],
-    },
+    defaultValues: { name: "", description: "", permissions: [] },
   });
 
-  // sync - đồng bộ khi mo dialog edit
+  // reset form moi lan mo dialog edit
   useEffect(() => {
-    if (open) {
-      if (role) {
-        form.reset({
-          name: role.name,
-          description: role.description,
-          permissions: [], // cần bổ sung list permission
-        });
-      } else {
-        form.reset({ name: "", description: "", permissions: [] });
-      }
-    }
+    if (!open) return;
+    form.reset({
+      name: role?.name ?? "",
+      description: role?.description ?? "",
+      permissions: [],
+    });
   }, [open, role]);
 
-  const handleSubmit = (values: RoleSchemaType) => {
-    onSubmit(values);
-  };
+  // pre-fill permissions sau khi assigned load xong - only edit
+  // assignedPermissionIds là string "id1,id2,..." để giữ referential stability
+  useEffect(() => {
+    if (!isEdit || assignedPermissionIds === undefined) return;
+    form.setValue("permissions", assignedPermissionIds ? assignedPermissionIds.split(",") : [], {
+      shouldDirty: false,
+    });
+  }, [assignedPermissionIds]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const isLoadingPicker = isLoadingPermissions || (isEdit && isLoadingAssigned);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-crimson-red">
-            {isEdit ? "Edit Roles" : "Create New Roles"}
+            {isEdit ? "Edit Role" : "Create New Role"}
           </DialogTitle>
+          <DialogDescription hidden></DialogDescription>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
             <FormField
               control={form.control}
               name="name"
@@ -87,7 +99,7 @@ export function RoleFormDialog({
                     <Input
                       variant="basic"
                       placeholder="VD: MANAGER_HR"
-                      disabled={isEdit} // tên không sửa được khi edit (BE logic)
+                      disabled={isEdit} // khong sua ten
                       {...field}
                       onChange={(e) => field.onChange(e.target.value.toUpperCase())}
                     />
@@ -97,6 +109,7 @@ export function RoleFormDialog({
               )}
             />
 
+            {/* Description */}
             <FormField
               control={form.control}
               name="description"
@@ -119,26 +132,22 @@ export function RoleFormDialog({
               )}
             />
 
+            {/* Permissions picker */}
             <FormField
               control={form.control}
               name="permissions"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel variant="basic" required>
-                    Permissions - Select the permissions for this role
+                    Permissions
                   </FormLabel>
                   <FormControl>
-                    <Input
-                      variant="basic"
-                      placeholder="id1, id2, id3"
-                      value={field.value.join(", ")}
-                      onChange={(e) => {
-                        const ids = e.target.value
-                          .split(",")
-                          .map((s) => s.trim())
-                          .filter(Boolean);
-                        field.onChange(ids);
-                      }}
+                    <MultiSelectPicker
+                      options={permissionOptions}
+                      value={field.value}
+                      onChange={field.onChange}
+                      isLoading={isLoadingPicker}
+                      placeholder="Search permission..."
                     />
                   </FormControl>
                   <FormMessage />

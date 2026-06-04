@@ -36,11 +36,21 @@
 │   │   base.entity.ts
 │   │
 │   ├───permission
+│   │   │   index.ts
+│   │   │
 │   │   └───types
+│   │           permission-filter.type.ts
+│   │           permission-request.type.ts
+│   │           permission-response.type.ts
 │   │           permission.type.ts
 │   │
 │   ├───role
+│   │   │   index.ts
+│   │   │
 │   │   └───types
+│   │           role-filter.type.ts
+│   │           role-request.type.ts
+│   │           role-response.type.ts
 │   │           role.type.ts
 │   │
 │   └───user
@@ -136,11 +146,48 @@
 │   │           auth.store.ts
 │   │
 │   ├───permission
-│   ├───role
-│   ├───session
 │   │   │   index.ts
 │   │   │
-│   │   └───hooks
+│   │   ├───api
+│   │   │       permission.api.ts
+│   │   │
+│   │   ├───components
+│   │   │       PermissionFormDialog.tsx
+│   │   │       PermissionTable.tsx
+│   │   │       PermissionToolbar.tsx
+│   │   │
+│   │   ├───hooks
+│   │   │       useCreatePermission.ts
+│   │   │       useDeletePermission.ts
+│   │   │       usePermission.ts
+│   │   │       useUpdatePermission.ts
+│   │   │
+│   │   └───schemas
+│   │           permission.schema.ts
+│   │
+│   ├───role
+│   │   │   index.ts
+│   │   │
+│   │   ├───api
+│   │   │       role.api.ts
+│   │   │
+│   │   ├───components
+│   │   │       RoleFormDialog.tsx
+│   │   │       RoleTable.tsx
+│   │   │       RoleToolbar.tsx
+│   │   │
+│   │   ├───hooks
+│   │   │       useCreateRole.ts
+│   │   │       useDeleteRole.ts
+│   │   │       useRoles.ts
+│   │   │       useUpdateRole.ts
+│   │   │
+│   │   └───schemas
+│   │           role.schema.ts
+│   │
+│   ├───session
+│   │       index.ts
+│   │
 │   └───user
 │       │   index.ts
 │       │
@@ -192,8 +239,11 @@
 │   │       HomePage.tsx
 │   │
 │   ├───permissions
-│   ├───register
+│   │       PermissionPage.tsx
+│   │
 │   ├───roles
+│   │       RolePage.tsx
+│   │
 │   └───users
 │           MePage.tsx
 │
@@ -259,12 +309,14 @@
 │       │   badge.tsx
 │       │   button.tsx
 │       │   card.tsx
+│       │   checkbox.tsx
 │       │   dialog.tsx
 │       │   dropdown-menu.tsx
 │       │   form.tsx
 │       │   index.ts
 │       │   input.tsx
 │       │   label.tsx
+│       │   scroll-area.tsx
 │       │   select.tsx
 │       │   separator.tsx
 │       │   sheet.tsx
@@ -277,7 +329,9 @@
 │       │
 │       ├───custom
 │       │       confirm-dialog.tsx
+│       │       data-table.tsx
 │       │       index.ts
+│       │       multi-select-picker.tsx
 │       │       otp-input.tsx
 │       │       password-input.tsx
 │       │

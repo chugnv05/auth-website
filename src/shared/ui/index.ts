@@ -17,6 +17,7 @@ export {
   CardHeader,
   CardTitle,
 } from "./card";
+export { Checkbox } from "./checkbox";
 export {
   Dialog,
   DialogClose,
@@ -58,6 +59,7 @@ export {
 } from "./form";
 export { Input } from "./input";
 export { Label } from "./label";
+export { ScrollArea, ScrollBar } from "./scroll-area";
 export {
   Select,
   SelectContent,

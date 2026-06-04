@@ -1,9 +1,11 @@
 import type {
+  PermissionBaseResponse,
   PermissionDetailResponse,
   PermissionFilter,
   PermissionRequest,
   PermissionResponse,
 } from "@/entities/permission";
+import type { RoleBaseResponse } from "@/entities/role";
 import { ENDPOINTS } from "@/shared/api/endpoints";
 import { httpClient } from "@/shared/api/httpClient";
 import type { ApiResponse } from "@/shared/api/types";
@@ -16,6 +18,14 @@ export const permissionApi = {
 
   getDetail: (id: string) =>
     httpClient.get<ApiResponse<PermissionDetailResponse>>(ENDPOINTS.PERMISSIONS.detail(id)),
+
+  getLimit: (filter?: PermissionFilter, limit = 100) =>
+    httpClient.get<ApiResponse<PermissionBaseResponse[]>>(ENDPOINTS.PERMISSIONS.limit, {
+      params: { ...filter, limit },
+    }),
+
+  getRolesByPermission: (id: string) =>
+    httpClient.get<ApiResponse<RoleBaseResponse[]>>(ENDPOINTS.PERMISSIONS.rolesByPermission(id)),
 
   create: (data: PermissionRequest) =>
     httpClient.post<ApiResponse<PermissionResponse>>(ENDPOINTS.PERMISSIONS.create, data),
