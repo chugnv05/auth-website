@@ -18,6 +18,8 @@ export const MESSAGES = {
     updateError: "Update failed, please try again",
     deleteSuccess: "Deleted successfully",
     deleteError: "Delete failed, please try again",
+    removeSuccess: "Removed successfully",
+    removeError: "Removed failed, please try again",
     errorGeneric: "Something went wrong, please try again",
     changePassword: "Password changed successfully",
     forgotPassword: "OTP send success",
@@ -40,6 +42,9 @@ export const MESSAGES = {
     lastName: { invalid: "Last name must be at least 2 characters" },
     gender: {
       invalid: "Gender is required",
+    },
+    status: {
+      invalid: "Status is required",
     },
     dob: {
       required: "Date of birth is required",

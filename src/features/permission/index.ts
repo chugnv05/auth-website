@@ -8,5 +8,5 @@ export {
   usePermissions,
   usePermissionsByRole,
   usePermissionsLimit,
-} from "./hooks/usePermission";
+} from "./hooks/usePermissions";
 export { useUpdatePermission } from "./hooks/useUpdatePermission";

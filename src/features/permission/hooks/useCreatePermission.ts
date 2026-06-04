@@ -3,7 +3,7 @@ import { getErrorMessage } from "@/shared/lib/error";
 import { notify } from "@/shared/lib/toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { permissionApi } from "../api/permission.api";
-import { PERMISSION_KEYS } from "./usePermission";
+import { PERMISSION_KEYS } from "./usePermissions";
 
 export function useCreatePermission() {
   const queryClient = useQueryClient();

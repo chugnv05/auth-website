@@ -1,6 +1,6 @@
 import type { RoleDetailResponse } from "@/entities/role";
 import { usePermissionsLimit } from "@/features/permission";
-import { usePermissionsByRole } from "@/features/permission/hooks/usePermission";
+import { usePermissionsByRole } from "@/features/permission/hooks/usePermissions";
 import {
   Button,
   Dialog,
