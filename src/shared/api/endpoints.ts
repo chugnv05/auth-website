@@ -37,7 +37,7 @@ export const ENDPOINTS = {
     updateById: (id: string) => `/users/${id}/update`,
     lock: (id: string) => `/users/${id}/lock`,
     softDelete: (id: string) => `/users/${id}/soft-delete`,
-    delete: (id: string) => `/users/${id}`,
+    delete: (id: string) => `/users/${id}/delete`,
   },
   EMAILS: {
     send: "/emails/send",

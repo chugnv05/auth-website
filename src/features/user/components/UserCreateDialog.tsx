@@ -172,7 +172,7 @@ export function UserCreateDialog({
                     Email
                   </FormLabel>
                   <FormControl>
-                    <Input variant="basic" type="email" placeholder="john@example.com" {...field} />
+                    <Input variant="basic" type="email" placeholder="npc@example.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

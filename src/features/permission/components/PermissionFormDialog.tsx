@@ -66,10 +66,9 @@ export function PermissionFormDialog({
 
   // pre-fill roles sau khi data assigned load - only edit
   useEffect(() => {
-    if (isEdit && assignedRoleIds) {
-      form.setValue("roles", assignedRoleIds);
-    }
-  }, [assignedRoleIds, isEdit, form]);
+    if (!open || !isEdit || !assignedRoleIds) return;
+    form.setValue("roles", assignedRoleIds);
+  }, [open, assignedRoleIds, isEdit, form]);
 
   const isLoadingPicker = isLoadingRoles || (isEdit && isLoadingAssigned);
 
@@ -161,7 +160,7 @@ export function PermissionFormDialog({
                 Cancel
               </Button>
               <Button type="submit" variant="authBlock" disabled={isPending}>
-                {isPending ? "Saving..." : isEdit ? "Edit" : "Add"}
+                {isPending ? "Saving..." : isEdit ? "Save" : "Edit"}
               </Button>
             </DialogFooter>
           </form>

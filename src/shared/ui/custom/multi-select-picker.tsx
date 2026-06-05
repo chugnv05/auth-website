@@ -1,15 +1,13 @@
 import { cn } from "@/shared/lib/utils";
-import { Loader2, Search, X } from "lucide-react";
+import { Loader2, Minus, Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
-import { Checkbox } from "../checkbox";
 import { Input } from "../input";
 import { ScrollArea } from "../scroll-area";
-
 export interface SelectOption {
   id: string;
   label: string;
+  subLabel?: string;
 }
-
 interface MultiSelectPickerProps {
   options: SelectOption[];
   value: string[]; // selected IDs
@@ -32,7 +30,9 @@ export function MultiSelectPicker({
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
     if (!q) return options;
-    return options.filter((o) => o.label.toLowerCase().includes(q));
+    return options.filter(
+      (o) => o.label.toLowerCase().includes(q) || o.subLabel?.toLowerCase().includes(q),
+    );
   }, [options, search]);
 
   const toggle = (id: string) => {
@@ -97,12 +97,27 @@ export function MultiSelectPicker({
             onClick={toggleAll}
             onKeyDown={(e) => e.key === "Enter" && toggleAll()}
           >
-            <Checkbox
-              variant="crimson"
-              size="sm"
-              checked={allSelected ? true : someSelected ? "indeterminate" : false}
-              className="pointer-events-none"
-            />
+            {/* Custom checkbox - tránh Radix Checkbox gây infinite loop */}
+            <span
+              className={cn(
+                "size-4 rounded border-2 border-input flex items-center justify-center shrink-0 transition-colors",
+                allSelected && "bg-crimson-red border-crimson-red",
+                someSelected && "border-crimson-red",
+              )}
+            >
+              {allSelected && (
+                <svg viewBox="0 0 10 8" className="size-2.5 fill-white">
+                  <path
+                    d="M1 4l2.5 2.5L9 1"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              )}
+              {someSelected && <Minus className="size-2.5 text-crimson-red" strokeWidth={3} />}
+            </span>
             <span className="text-xs font-medium text-muted-foreground">
               {allSelected ? "Uncheck all" : "Select all"}
               {search && ` (${filtered.length} result)`}
@@ -128,13 +143,33 @@ export function MultiSelectPicker({
                     onClick={() => toggle(option.id)}
                     onKeyDown={(e) => e.key === "Enter" && toggle(option.id)}
                   >
-                    <Checkbox
-                      variant="crimson"
-                      size="sm"
-                      checked={checked}
-                      className="pointer-events-none"
-                    />
-                    <span className="text-sm truncate">{option.label}</span>
+                    {/* Custom checkbox - tránh Radix Checkbox gây infinite loop */}
+                    <span
+                      className={cn(
+                        "size-4 rounded border-2 border-input flex items-center justify-center shrink-0 transition-colors",
+                        checked && "bg-crimson-red border-crimson-red",
+                      )}
+                    >
+                      {checked && (
+                        <svg viewBox="0 0 10 8" className="size-2.5">
+                          <path
+                            d="M1 4l2.5 2.5L9 1"
+                            stroke="white"
+                            strokeWidth="1.5"
+                            fill="none"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      )}
+                    </span>
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-sm truncate">{option.label}</span>
+                      {option.subLabel && (
+                        <span className="text-xs text-muted-foreground truncate">
+                          {option.subLabel}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 );
               })
@@ -146,7 +181,7 @@ export function MultiSelectPicker({
       {/* Selected count */}
       {value.length > 0 && (
         <div className="border-t border-input px-3 py-1.5">
-          <span className="text-xs text-crimson-red font-medium">Selectd: {value.length}</span>
+          <span className="text-xs text-crimson-red font-medium">Selected: {value.length}</span>
         </div>
       )}
     </div>

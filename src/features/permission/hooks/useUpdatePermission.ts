@@ -1,3 +1,4 @@
+import { ROLE_KEYS } from "@/features/role";
 import { MESSAGES } from "@/shared/constants/messages";
 import { getErrorMessage } from "@/shared/lib/error";
 import { notify } from "@/shared/lib/toast";
@@ -13,6 +14,7 @@ export function useUpdatePermission() {
     onSuccess: (res, { id }) => {
       queryClient.invalidateQueries({ queryKey: PERMISSION_KEYS.all });
       queryClient.invalidateQueries({ queryKey: PERMISSION_KEYS.detail(id) });
+      queryClient.invalidateQueries({ queryKey: ROLE_KEYS.byPermission(id) });
       notify.success(res.data.message ?? MESSAGES.common.updateSuccess);
     },
     onError: (error) => {

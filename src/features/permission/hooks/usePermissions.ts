@@ -43,6 +43,6 @@ export function usePermissionsByRole(roleId: string | undefined) {
     queryFn: () => roleApi.getPermissionsByRole(roleId!),
     enabled: !!roleId,
     select: (res) => (res.data.data ?? []).map((p) => p.id),
-    staleTime: 5 * 60 * 1000,
+    staleTime: 5 * 60 * 1000, // 5 phut
   });
 }
