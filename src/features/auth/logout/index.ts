@@ -1,1 +1,1 @@
-export { default as useLogout } from "./hooks/useLogout.tsx";
+export { useLogout } from "./hooks/useLogout.tsx";

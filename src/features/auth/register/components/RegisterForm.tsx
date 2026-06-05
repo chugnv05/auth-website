@@ -20,10 +20,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import ContinueWithSocial from "../../components/ContinueWithSocial";
-import useRegister from "../hooks/useRegister";
+import { useRegister } from "../hooks/useRegister";
 import { registerSchema, type RegisterSchemaType } from "../schemas/register.schema";
 
-export default function RegisterForm() {
+export function RegisterForm() {
   const registerMutation = useRegister();
   const form = useForm<RegisterSchemaType>({
     resolver: zodResolver(registerSchema),

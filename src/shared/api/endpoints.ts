@@ -11,16 +11,20 @@ export const ENDPOINTS = {
   ROLES: {
     list: "/roles",
     create: "/roles",
+    limit: "/roles/limit",
     detail: (id: string) => `/roles/${id}`,
     update: (id: string) => `/roles/${id}`,
     delete: (id: string) => `/roles/${id}`,
+    permissionsByRole: (id: string) => `/roles/${id}/permissions`,
   },
   PERMISSIONS: {
     list: "/permissions",
     create: "/permissions",
+    limit: "/permissions/limit",
     detail: (id: string) => `/permissions/${id}`,
     update: (id: string) => `/permissions/${id}`,
     delete: (id: string) => `/permissions/${id}`,
+    rolesByPermission: (id: string) => `/permissions/${id}/roles`,
   },
   USERS: {
     me: "/users/me",
@@ -33,7 +37,7 @@ export const ENDPOINTS = {
     updateById: (id: string) => `/users/${id}/update`,
     lock: (id: string) => `/users/${id}/lock`,
     softDelete: (id: string) => `/users/${id}/soft-delete`,
-    delete: (id: string) => `/users/${id}`,
+    delete: (id: string) => `/users/${id}/delete`,
   },
   EMAILS: {
     send: "/emails/send",

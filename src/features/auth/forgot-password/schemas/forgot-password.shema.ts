@@ -2,7 +2,7 @@ import { MESSAGES } from "@/shared/constants/messages";
 import { z } from "zod";
 
 export const forgotPasswordSchema = z.object({
-  email: z.string().email(MESSAGES.user.email.format),
+  email: z.string().trim().email(MESSAGES.user.email.format),
 });
 
 export const verifyOtpSchema = z.object({
@@ -17,12 +17,13 @@ export const resetPasswordSchema = z
   .object({
     newPassword: z
       .string()
+      .trim()
       .min(6, MESSAGES.user.password.invalid)
       .regex(/[A-Z]/, MESSAGES.user.password.uppercase)
       .regex(/[a-z]/, MESSAGES.user.password.lowercase)
       .regex(/\d/, MESSAGES.user.password.number)
       .regex(/[@#$%&*!]/, MESSAGES.user.password.specialCharacters),
-    reNewPassword: z.string().min(1, MESSAGES.user.password.reEnter),
+    reNewPassword: z.string().trim().min(1, MESSAGES.user.password.reEnter),
   })
   .refine((data) => data.newPassword === data.reNewPassword, {
     message: MESSAGES.user.password.doNotMatch,

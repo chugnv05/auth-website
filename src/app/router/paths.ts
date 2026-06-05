@@ -13,7 +13,7 @@ export const PATHS = {
   BLOG: "/blog",
   USER: "/users",
   ROLE: "/roles",
-  PERMISSION: "/perrmissions",
+  PERMISSION: "/permissions",
   ME: "/me",
 } as const;
 

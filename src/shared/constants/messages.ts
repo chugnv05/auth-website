@@ -18,6 +18,8 @@ export const MESSAGES = {
     updateError: "Update failed, please try again",
     deleteSuccess: "Deleted successfully",
     deleteError: "Delete failed, please try again",
+    removeSuccess: "Removed successfully",
+    removeError: "Removed failed, please try again",
     errorGeneric: "Something went wrong, please try again",
     changePassword: "Password changed successfully",
     forgotPassword: "OTP send success",
@@ -31,12 +33,18 @@ export const MESSAGES = {
     verifyError: "Verification failed",
     resetSuccess: "Reset successfully",
     resetError: "Reset failed",
+    maxNameLength: "Name is too long",
+    maxDesLength: "Description is too long",
+    invalidDescription: "Description cannot be blank",
   },
   user: {
     firstName: { invalid: "First name must be at least 2 characters" },
     lastName: { invalid: "Last name must be at least 2 characters" },
     gender: {
       invalid: "Gender is required",
+    },
+    status: {
+      invalid: "Status is required",
     },
     dob: {
       required: "Date of birth is required",
@@ -70,6 +78,7 @@ export const MESSAGES = {
     format:
       "Role name must only contain uppercase letters, numbers, and the '_' character to separate words",
     existed: "Role already existed",
+    select: "Select at least 1 role",
   },
   permission: {
     denied: "Permission denied",
@@ -78,11 +87,13 @@ export const MESSAGES = {
     format:
       "Permisison name must only contain lowercase letters, ':', and the '_' character to separate words",
     existed: "Permission already existed",
+    select: "Select at least 1 permission",
   },
   otp: {
     invalid: "OTP code is incorrect or expired",
     required: "OTP is required",
     format: "OTP must be at most 6 digits",
     regex: "OTP must contain digits only",
+    min: "Select at least 1 role",
   },
 } as const;

@@ -24,8 +24,8 @@ const inputVariants = cva(
         search: ["rounded-full border-boder bg-muted/50", "focus-visiable:bg-background"],
         basic: [
           "border-crimson-red/20 bg-white",
-          "focus-visible: border-crimson-red",
-          "focus-visible: ring-crimson-red/20",
+          "focus-visible:border-crimson-red",
+          "focus-visible:ring-crimson-red/20",
           "shadow-sm",
         ],
         checkBox: "w-4 h-4",

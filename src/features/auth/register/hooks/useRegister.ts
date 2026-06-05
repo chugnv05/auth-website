@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { authApi } from "../../api/auth.api";
 import type { RegisterSchemaType } from "../schemas/register.schema";
 
-export default function useRegister() {
+export function useRegister() {
   const navigate = useNavigate();
 
   return useMutation({

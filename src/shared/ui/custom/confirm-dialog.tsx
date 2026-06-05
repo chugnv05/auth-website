@@ -1,5 +1,12 @@
 import { Button } from "../button";
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "../dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "../dialog";
 
 type ConfirmDialogProps = {
   open: boolean;
@@ -13,7 +20,7 @@ type ConfirmDialogProps = {
   onConfirm: () => void;
 };
 
-export default function ConfirmDialog({
+export function ConfirmDialog({
   open,
   onOpenChange,
   title = "Bạn có chắc chắn không?",
@@ -26,10 +33,12 @@ export default function ConfirmDialog({
 }: ConfirmDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-sm ">
+      <DialogContent className="sm:max-w-sm">
         <DialogHeader>
           <DialogTitle className="text-crimson-red font-semibold">{title}</DialogTitle>
-          {description && <p className="text-sm text-crimson">{description}</p>}
+          <DialogDescription>
+            {description && <p className="text-sm text-crimson">{description}</p>}
+          </DialogDescription>
         </DialogHeader>
         <DialogFooter className="gap-2">
           <Button variant="outline" onClick={() => onOpenChange(false)} disabled={loading}>

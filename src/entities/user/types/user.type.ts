@@ -1,5 +1,5 @@
 import type { BaseEntity } from "@/entities/base.entity";
-import type { Role } from "@/entities/role/types/role.type";
+import type { RoleBaseResponse } from "@/entities/role/types/role-response.type";
 import type { Gender } from "@/shared/constants/gender";
 import type { Status } from "@/shared/constants/status";
 
@@ -13,5 +13,5 @@ export interface User extends BaseEntity {
   phoneNumber: string;
   profilePicture: string | null;
   status: Status;
-  roles: Role[];
+  roles: RoleBaseResponse[];
 }

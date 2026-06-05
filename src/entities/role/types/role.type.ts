@@ -1,5 +1,5 @@
 import type { BaseEntity } from "@/entities/base.entity";
-import type { Permission } from "@/entities/permission/types/permission.type";
+import type { PermissionBaseResponse } from "@/entities/permission/types/permission-response.type";
 
 export interface Role {
   id: string;
@@ -10,5 +10,5 @@ export interface Role {
 export interface RoleDetail extends BaseEntity {
   name: string;
   description: string;
-  permissions?: Permission[];
+  permissions?: PermissionBaseResponse[];
 }

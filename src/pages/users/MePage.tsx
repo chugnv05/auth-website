@@ -1,7 +1,7 @@
 import { useAuthStore } from "@/features/auth/store/auth.store";
-import { MeForm } from "@/features/user";
+import { useUpdateMe } from "@/features/user";
+import { MeForm } from "@/features/user/components/MeForm";
 import { MeHeader } from "@/features/user/components/MeHeader";
-import useUpdateMe from "@/features/user/hooks/useUpdateMe";
 import { updateMeSchema, type UpdateMeSchemaType } from "@/features/user/schemas/update.schema";
 import { Button, Form } from "@/shared/ui";
 import { zodResolver } from "@hookform/resolvers/zod";

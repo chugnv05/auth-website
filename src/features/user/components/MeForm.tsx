@@ -1,4 +1,4 @@
-import type { User } from "@/entities/user/types";
+import type { User } from "@/entities/user";
 import { genderData } from "@/shared/config/gender.data";
 import { STATUS_CONFIG } from "@/shared/config/status.data";
 import { RoleType } from "@/shared/constants/role";

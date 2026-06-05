@@ -1,4 +1,4 @@
-import type { User } from "@/entities/user/types";
+import type { User } from "@/entities/user";
 import { Button, Dialog, DialogContent, DialogTitle } from "@/shared/ui";
 import { X } from "lucide-react";
 

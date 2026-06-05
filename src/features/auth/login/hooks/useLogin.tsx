@@ -6,7 +6,7 @@ import { authApi } from "../../api/auth.api";
 import { useAuthStore } from "../../store/auth.store";
 import type { LoginSchemaType } from "../schemas/login.schema";
 
-export default function useLogin() {
+export function useLogin() {
   //connect UI voi API
   const setAuth = useAuthStore((s) => s.setAuth);
 

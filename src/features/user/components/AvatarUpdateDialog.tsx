@@ -1,4 +1,4 @@
-import type { User } from "@/entities/user/types";
+import type { User } from "@/entities/user";
 import { useAuthStore } from "@/features/auth/store/auth.store";
 import { MESSAGES } from "@/shared/constants/messages";
 import { getErrorMessage } from "@/shared/lib/error";
@@ -7,6 +7,7 @@ import {
   Button,
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -65,6 +66,7 @@ export function AvatarUpdateDialog({ user, open, onOpenChange }: AvatarUpdateDia
       <DialogContent showCloseButton={false} size="sm">
         <DialogHeader>
           <DialogTitle className="text-crimson-red">Update Profile Picture</DialogTitle>
+          <DialogDescription hidden />
         </DialogHeader>
         <div
           className="relative flex items-center justify-center w-full aspect-square rounded-xl overflow-hidden bg-muted cursor-pointer border-2 border-dashed border-border hover:border-crimson-red transition-colors"

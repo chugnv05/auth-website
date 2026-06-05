@@ -4,6 +4,10 @@
 
 ![The Sun](./public/the-sun.png)
 
+![Demo Inside 1](./public/demo-1.png)
+
+![Demo Inside 2](./public/demo-2.png)
+
 ## ✨ About This Project
 
 - React + TypeScript
@@ -22,11 +26,6 @@
 | React 19   |
 | TypeScript |
 | Vite 8     |
-|            |
-|            |
-|            |
-|            |
-|            |
 
 | UI/ Styling              |
 | ------------------------ |

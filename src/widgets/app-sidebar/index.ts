@@ -1,2 +1,2 @@
-export { default as MobileSidebar } from "./MobileSidebar";
-export { default as ProtectedSidebar } from "./ProtectedSidebar";
+export { MobileSidebar } from "./MobileSidebar";
+export { ProtectedSidebar } from "./ProtectedSidebar";

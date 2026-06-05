@@ -15,10 +15,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import ContinueWithSocial from "../../components/ContinueWithSocial";
-import useLogin from "../hooks/useLogin";
+import { useLogin } from "../hooks/useLogin";
 import { loginSchema, type LoginSchemaType } from "../schemas/login.schema";
 
-export default function LoginForm() {
+export function LoginForm() {
   const navigate = useNavigate();
   const loginMutation = useLogin();
 
