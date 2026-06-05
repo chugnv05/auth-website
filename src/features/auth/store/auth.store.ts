@@ -1,4 +1,4 @@
-import type { User } from "@/entities/user/types";
+import type { User } from "@/entities/user";
 import { create } from "zustand"; // bo nho chung toan app
 
 type AuthState = {

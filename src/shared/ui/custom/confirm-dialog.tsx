@@ -13,7 +13,7 @@ type ConfirmDialogProps = {
   onConfirm: () => void;
 };
 
-export default function ConfirmDialog({
+export function ConfirmDialog({
   open,
   onOpenChange,
   title = "Bạn có chắc chắn không?",

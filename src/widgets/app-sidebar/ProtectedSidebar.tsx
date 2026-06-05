@@ -11,7 +11,7 @@ type SidebarProps = {
   onToggle: () => void;
 };
 
-export default function ProtectedSidebar({ isOpen, onToggle }: SidebarProps) {
+export function ProtectedSidebar({ isOpen, onToggle }: SidebarProps) {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
   const toggleItem = (title: string) => {
     setOpenItems((prev) => ({ ...prev, [title]: !prev[title] }));

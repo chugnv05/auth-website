@@ -1,4 +1,4 @@
-import type { User } from "@/entities/user/types";
+import type { User } from "@/entities/user";
 import { useAuthStore } from "@/features/auth/store/auth.store";
 import { MESSAGES } from "@/shared/constants/messages";
 import { getErrorMessage } from "@/shared/lib/error";

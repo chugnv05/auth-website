@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { authApi } from "../../api/auth.api";
 import { useAuthStore } from "../../store/auth.store";
 
-export default function useLogout() {
+export function useLogout() {
   const logout = useAuthStore((s) => s.logout);
   const navigate = useNavigate();
 
