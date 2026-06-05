@@ -1,4 +1,5 @@
 import type { UserAdminResponse, UserBaseResponse } from "@/entities/user";
+import { genderData } from "@/shared/config/gender.data";
 import { STATUS_CONFIG } from "@/shared/config/status.data";
 import { RoleType } from "@/shared/constants/role";
 import type { Status } from "@/shared/constants/status";
@@ -43,6 +44,7 @@ type UserTableProps = {
   onDetail?: (user: UserRow) => void;
   onLock?: (user: UserRow) => void;
   onSoftDelete?: (user: UserRow) => void;
+  currentUserRoles?: string[];
 };
 
 export function UserTable({
@@ -53,7 +55,9 @@ export function UserTable({
   onDetail,
   onLock,
   onSoftDelete,
+  currentUserRoles = [],
 }: UserTableProps) {
+  const isCurrentUserAdmin = currentUserRoles.includes(RoleType.ADMIN);
   const columns: ColumnDef<UserRow>[] = [
     {
       key: "avatar",
@@ -84,7 +88,10 @@ export function UserTable({
     {
       key: "gender",
       header: "Gender",
-      cell: (row) => <span className="text-crimson-red/70 text-sm">{row.gender}</span>,
+      cell: (row) => {
+        const label = genderData.find((g) => g.value === row.gender)?.label ?? row.gender;
+        return <span className="text-crimson-red/70 text-sm">{label}</span>;
+      },
     },
     {
       key: "phoneNumber",
@@ -96,28 +103,32 @@ export function UserTable({
       header: "Email",
       cell: (row) => <span className="text-crimson-red/70 text-sm">{row.email}</span>,
     },
-    {
-      key: "roles",
-      header: "Roles",
-      cell: (row) => {
-        if (!isAdminResponse(row) || !row.roles?.length) {
-          return <span className="text-crimson-red/40 text-xs">—</span>;
-        }
-        return (
-          <div className="flex flex-wrap gap-1">
-            {row.roles.map((r) => (
-              <Badge
-                key={r.id}
-                variant={r.name === RoleType.ADMIN ? "default" : "outline"}
-                size="sm"
-              >
-                {r.name}
-              </Badge>
-            ))}
-          </div>
-        );
-      },
-    },
+    ...(isCurrentUserAdmin
+      ? [
+          {
+            key: "roles",
+            header: "Roles",
+            cell: (row: UserRow) => {
+              if (!isAdminResponse(row) || !row.roles?.length) {
+                return <span className="text-crimson-red/40 text-xs">—</span>;
+              }
+              return (
+                <div className="flex flex-wrap gap-1">
+                  {row.roles.map((r) => (
+                    <Badge
+                      key={r.id}
+                      variant={r.name === RoleType.ADMIN ? "default" : "outline"}
+                      size="sm"
+                    >
+                      {r.name}
+                    </Badge>
+                  ))}
+                </div>
+              );
+            },
+          },
+        ]
+      : []),
     {
       key: "status",
       header: "Status",

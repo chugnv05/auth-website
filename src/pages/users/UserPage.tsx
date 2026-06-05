@@ -25,6 +25,7 @@ type DialogAction = "lock" | "softDelete" | "delete";
 export default function UserPage() {
   const currentUser = useAuthStore((s) => s.user);
   const currentUserRoles = currentUser?.roles?.map((r) => r.name) ?? [];
+
   const [filter, setFilter] = useState<UserFilter>({});
   const [page, setPage] = useState(1);
   const PAGE_SIZE = 10;
@@ -189,6 +190,7 @@ export default function UserPage() {
         onDetail={handleDetail}
         onLock={handleLock}
         onSoftDelete={handleSoftDelete}
+        currentUserRoles={currentUserRoles}
       />
 
       {/* Create dialog */}
@@ -199,18 +201,20 @@ export default function UserPage() {
         isPending={createUser.isPending}
       />
 
-      {/* Detail dialog */}
-      <UserDetailDialog
-        open={detailOpen}
-        onOpenChange={setDetailOpen}
-        user={userDetail}
-        isLoading={isLoadingDetail}
-        currentUserRoles={currentUserRoles}
-        onUpdate={handleUpdate}
-        onDelete={handleDeleteRequest}
-        isUpdatePending={updateUser.isPending}
-        isDeletePending={deleteUser.isPending}
-      />
+      {/* Detail dialog - chi mount khi co selectedUser de tranh portal render lech */}
+      {selectedUser && (
+        <UserDetailDialog
+          open={detailOpen}
+          onOpenChange={setDetailOpen}
+          user={userDetail}
+          isLoading={isLoadingDetail}
+          currentUserRoles={currentUserRoles}
+          onUpdate={handleUpdate}
+          onDelete={handleDeleteRequest}
+          isUpdatePending={updateUser.isPending}
+          isDeletePending={deleteUser.isPending}
+        />
+      )}
 
       {/* Confirm dialog (lock / softDelete / delete) */}
       <ConfirmDialog

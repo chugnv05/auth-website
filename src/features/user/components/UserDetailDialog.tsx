@@ -11,6 +11,7 @@ import {
   Badge,
   Button,
   Dialog,
+  DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
@@ -29,7 +30,6 @@ import {
   SelectValue,
 } from "@/shared/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { DialogContent } from "@radix-ui/react-dialog";
 import { Pencil, Trash2, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -42,7 +42,7 @@ interface UserDetailDialogProps {
   onOpenChange: (open: boolean) => void;
   user: UserDetailResponse | undefined;
   isLoading?: boolean;
-  // Check user dang login co phai ADMIN khong
+  // current logged-in user's roles (để check xem có phải ADMIN không)
   currentUserRoles: string[];
   onUpdate: (values: UpdateUserByIdSchemaType) => void;
   onDelete: () => void;
@@ -62,15 +62,27 @@ export function UserDetailDialog({
   isDeletePending = false,
 }: UserDetailDialogProps) {
   const [isEditing, setIsEditing] = useState(false);
+
   const isAdmin = currentUserRoles.includes(RoleType.ADMIN);
+
+  // Target user là ADMIN -> không được xóa cứng
   const targetAdmin = user?.roles?.some((r) => r.name === RoleType.ADMIN) ?? false;
+
   const showDeleteBtn = isAdmin && !targetAdmin;
 
   const form = useForm<UpdateUserByIdSchemaType>({
     resolver: zodResolver(updateUserByIdSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      gender: undefined,
+      dob: "",
+      email: "",
+      phoneNumber: "",
+      status: undefined,
+    },
   });
 
-  // detail
   useEffect(() => {
     if (!open) {
       setIsEditing(false);
@@ -240,7 +252,12 @@ export function UserDetailDialog({
                         Email
                       </FormLabel>
                       <FormControl>
-                        <Input variant="basic" type="email" disabled={!isEditing} {...field} />
+                        <Input
+                          variant="basic"
+                          type="email"
+                          disabled={!isEditing || !isAdmin}
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -297,9 +314,9 @@ export function UserDetailDialog({
               </div>
 
               {/* Timestamps */}
-              <div className="flex items-center justify-between text-xs text-crimson-red/50">
-                <span>Created: {formatDateTime(user.createdAt)}</span>
-                <span>Updated: {formatDateTime(user.updatedAt)}</span>
+              <div className="text-xs text-crimson-red/50">
+                <p>Created: {formatDateTime(user.createdAt)}</p>
+                <p>Updated: {formatDateTime(user.updatedAt)}</p>
               </div>
 
               {/* Footer */}

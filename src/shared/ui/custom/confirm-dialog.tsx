@@ -1,5 +1,12 @@
 import { Button } from "../button";
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "../dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "../dialog";
 
 type ConfirmDialogProps = {
   open: boolean;
@@ -29,7 +36,9 @@ export function ConfirmDialog({
       <DialogContent className="sm:max-w-sm">
         <DialogHeader>
           <DialogTitle className="text-crimson-red font-semibold">{title}</DialogTitle>
-          {description && <p className="text-sm text-crimson">{description}</p>}
+          <DialogDescription>
+            {description && <p className="text-sm text-crimson">{description}</p>}
+          </DialogDescription>
         </DialogHeader>
         <DialogFooter className="gap-2">
           <Button variant="outline" onClick={() => onOpenChange(false)} disabled={loading}>
