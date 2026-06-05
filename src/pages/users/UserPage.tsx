@@ -137,7 +137,7 @@ export default function UserPage() {
           ? `Unlock ${selectedUser?.fullName}? They will regain access to the system.`
           : `Lock ${selectedUser?.fullName}? They will not be able to log in.`,
       confirmLabel: selectedUser?.status === "LOCKED" ? "Unlock" : "Lock",
-      variant: "default" as const,
+      variant: "destructive" as const,
     },
     softDelete: {
       title: "Deactivate User",

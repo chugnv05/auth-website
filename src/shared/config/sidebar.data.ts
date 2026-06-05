@@ -1,6 +1,7 @@
 import { PATHS } from "@/app/router/paths";
 import { Key, LayoutDashboard, OctagonMinus, User, UserKey } from "lucide-react";
 import type { IconType } from "react-icons/lib";
+import { RoleType } from "../constants/role";
 
 export type SidebarItem = {
   label: string;
@@ -12,6 +13,7 @@ export type SidebarColumn = {
   title: string;
   to: string;
   items?: SidebarItem[];
+  allowedRoles?: string[];
 };
 
 export const sidebarData: SidebarColumn[] = [
@@ -24,21 +26,24 @@ export const sidebarData: SidebarColumn[] = [
     icon: User,
     title: "User",
     to: PATHS.USER,
+    allowedRoles: [RoleType.ADMIN, RoleType.MANAGER],
   },
   {
     icon: UserKey,
     title: "Role",
     to: PATHS.ROLE,
+    allowedRoles: [RoleType.ADMIN],
   },
   {
     icon: Key,
     title: "Permisison",
     to: PATHS.PERMISSION,
+    allowedRoles: [RoleType.ADMIN],
   },
   {
     icon: OctagonMinus,
     title: "Temp",
-    to: PATHS.PERMISSION,
+    to: PATHS.DASHBOARD,
     items: [
       { label: "Temp 1", to: "" },
       { label: "Temp 2", to: "" },

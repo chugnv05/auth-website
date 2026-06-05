@@ -1,4 +1,5 @@
 import { PATHS } from "@/app/router/paths";
+import { useAuthStore } from "@/features/auth/store/auth.store";
 import svg from "@/shared/assets/svg";
 import { sidebarData } from "@/shared/config/sidebar.data";
 import { cn } from "@/shared/lib/utils";
@@ -12,7 +13,16 @@ type SidebarProps = {
 };
 
 export function ProtectedSidebar({ isOpen, onToggle }: SidebarProps) {
+  const user = useAuthStore((s) => s.user);
+  const userRoles = user?.roles?.map((r) => r.name) ?? [];
+
+  const visibleSidebar = sidebarData.filter((col) => {
+    if (!col.allowedRoles) return true; // không giới hạn
+    return col.allowedRoles.some((role) => userRoles.includes(role));
+  });
+
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
+
   const toggleItem = (title: string) => {
     setOpenItems((prev) => ({ ...prev, [title]: !prev[title] }));
   };
@@ -61,7 +71,7 @@ export function ProtectedSidebar({ isOpen, onToggle }: SidebarProps) {
       <div className="mx-3 h-px bg-peach/40" />
 
       <nav className="flex flex-col py-2 overflow-y-auto flex-1">
-        {sidebarData.map((column, index) => {
+        {visibleSidebar.map((column, index) => {
           const Icon = column.icon as React.ComponentType<{ className?: string }>;
           const isExpanded = openItems[column.title] ?? false;
           const hasChildren = column.items && column.items.length > 0;
@@ -146,7 +156,7 @@ export function ProtectedSidebar({ isOpen, onToggle }: SidebarProps) {
                 </div>
               )}
               {/* Ke doc giua cac item cha tru item cuoi */}
-              {index < sidebarData.length - 1 && (
+              {index < visibleSidebar.length - 1 && (
                 <div className="flex justify-center my-1 px-3">
                   <div className="w-px h-4 bg-peach/40" />
                 </div>

@@ -4,6 +4,8 @@ import PermissionPage from "@/pages/permissions/PermissionPage";
 import RolePage from "@/pages/roles/RolePage";
 import MePage from "@/pages/users/MePage";
 import UserPage from "@/pages/users/UserPage";
+import { RoleType } from "@/shared/constants/role";
+import RoleGuard from "./guards/RoleGuard";
 import { PATHS } from "./paths";
 
 export const protectedRoutes = [
@@ -12,8 +14,13 @@ export const protectedRoutes = [
     element: <DashboardPage />,
   },
   {
-    path: PATHS.USER,
-    element: <UserPage />,
+    element: <RoleGuard allowedRoles={[RoleType.ADMIN, RoleType.MANAGER]} />,
+    children: [
+      {
+        path: PATHS.USER,
+        element: <UserPage />,
+      },
+    ],
   },
   {
     path: PATHS.ME,
@@ -24,11 +31,16 @@ export const protectedRoutes = [
     element: <ChangePasswordPage />,
   },
   {
-    path: PATHS.ROLE,
-    element: <RolePage />,
-  },
-  {
-    path: PATHS.PERMISSION,
-    element: <PermissionPage />,
+    element: <RoleGuard allowedRoles={[RoleType.ADMIN]} />,
+    children: [
+      {
+        path: PATHS.ROLE,
+        element: <RolePage />,
+      },
+      {
+        path: PATHS.PERMISSION,
+        element: <PermissionPage />,
+      },
+    ],
   },
 ];
