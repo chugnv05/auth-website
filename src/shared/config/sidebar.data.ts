@@ -1,5 +1,5 @@
 import { PATHS } from "@/app/router/paths";
-import { Key, OctagonMinus, User, UserKey } from "lucide-react";
+import { Key, LayoutDashboard, OctagonMinus, User, UserKey } from "lucide-react";
 import type { IconType } from "react-icons/lib";
 
 export type SidebarItem = {
@@ -15,6 +15,11 @@ export type SidebarColumn = {
 };
 
 export const sidebarData: SidebarColumn[] = [
+  {
+    icon: LayoutDashboard,
+    title: "Dashboard",
+    to: PATHS.DASHBOARD,
+  },
   {
     icon: User,
     title: "User",
